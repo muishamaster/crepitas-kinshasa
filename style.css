@@ -1677,4 +1677,6 @@ body::before {
     .footer-content {
         grid-template-columns: 1fr;
     }
+}.logo p {
+    text-align: center;
 }
