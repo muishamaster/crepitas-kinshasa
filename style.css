@@ -438,10 +438,10 @@ body::before {
 
 .category-btn {
     padding: 1rem;
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
+    background: var(--dark-secondary);
+    border: 2px solid var(--gold);
     border-radius: 12px;
-    color: var(--text-light);
+    color: var(--gold-light);
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -452,23 +452,59 @@ body::before {
     gap: 0.5rem;
     font-weight: 600;
     font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(198, 142, 23, 0.3);
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.category-btn:hover::before {
+    left: 100%;
 }
 
 .category-btn .icon {
     font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.category-btn:hover .icon {
+    transform: scale(1.2);
 }
 
 .category-btn:hover {
-    background: var(--hover-bg);
-    border-color: var(--gold);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    background: var(--dark-secondary);
+    border-color: var(--gold-light);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.5),
+        0 0 60px rgba(212, 175, 55, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+    color: var(--gold);
 }
 
 .category-btn.active {
-    background: var(--gold);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
     color: var(--dark-bg);
-    border-color: var(--gold);
+    border-color: var(--gold-light);
+    box-shadow: 
+        0 0 40px rgba(212, 175, 55, 0.6),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.category-btn.active:hover {
+    transform: translateY(-5px) scale(1.02);
 }
 
 /* ======================== PRODUCT CARDS ======================== */
@@ -622,54 +658,75 @@ body::before {
     background: rgba(212, 175, 55, 0.05);
     padding: 1rem;
     border-radius: 10px;
-    border-left: 3px solid var(--gold);
+    border-left: 4px solid var(--gold);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.cart-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
 }
 
 .cart-item-name {
     flex-grow: 1;
+    min-width: 0;
 }
 
 .cart-item-name strong {
     display: block;
     color: var(--text-light);
     margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .cart-item-details {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
 }
 
 .cart-item-price {
-    color: var(--gold);
+    color: var(--gold-light);
     font-weight: 700;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: right;
 }
 
 .cart-item-qty-controls {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    background: rgba(212, 175, 55, 0.08);
+    padding: 0.3rem 0.4rem;
+    border-radius: 6px;
 }
 
 .btn-qty {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border: 1px solid var(--gold);
     background: transparent;
     color: var(--gold);
     cursor: pointer;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: bold;
     transition: var(--transition-smooth);
 }
 
 .btn-qty:hover {
     background: var(--gold);
     color: var(--dark-bg);
+    transform: scale(1.1);
 }
 
 .btn-remove {
@@ -679,10 +736,12 @@ body::before {
     cursor: pointer;
     font-size: 1rem;
     transition: var(--transition-smooth);
+    padding: 0.3rem 0.5rem;
 }
 
 .btn-remove:hover {
-    color: #ff4444;
+    color: #ff5555;
+    transform: scale(1.2);
 }
 
 .empty-cart {
@@ -710,27 +769,36 @@ body::before {
     justify-content: space-between;
     font-size: 0.95rem;
     color: var(--text-secondary);
+    padding: 0.5rem 0;
 }
 
 .summary-line.total {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: var(--gold);
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border-color);
+    color: var(--gold-light);
+    padding: 1rem 0;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    background: rgba(212, 175, 55, 0.05);
+    padding: 0.75rem;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    margin: 0.5rem 0;
 }
 
 /* ======================== CART ACTIONS ======================== */
 .cart-actions {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
     margin-bottom: 1.5rem;
 }
 
 .btn-pay,
-.btn-whatsapp {
-    padding: 1rem;
+.btn-whatsapp,
+.btn-edit-order,
+.btn-clear-order {
+    padding: 0.95rem;
     border: none;
     border-radius: 50px;
     font-weight: 700;
@@ -748,8 +816,9 @@ body::before {
 }
 
 .btn-pay:hover:not(:disabled) {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn-pay:disabled {
@@ -766,6 +835,26 @@ body::before {
 .btn-whatsapp:hover {
     background: var(--hover-bg);
     transform: translateY(-2px);
+}
+
+.btn-edit-order,
+.btn-clear-order {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    font-size: 0.8rem;
+}
+
+.btn-edit-order:hover {
+    color: var(--gold-light);
+    border-color: var(--gold-light);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.btn-clear-order:hover {
+    color: #ff6666;
+    border-color: #ff6666;
+    background: rgba(255, 102, 102, 0.05);
 }
 
 .footer-note {
@@ -1677,6 +1766,163 @@ body::before {
     .footer-content {
         grid-template-columns: 1fr;
     }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .qr-code-container {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+
+    .qr-code-container canvas,
+    .qr-code-container svg {
+        width: 150px !important;
+        height: 150px !important;
+    }
 }.logo p {
     text-align: center;
+}
+
+/* ======================== FOOTER ======================== */
+.footer {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.98) 0%, rgba(26, 26, 26, 0.98) 100%);
+    border-top: 2px solid var(--border-color);
+    padding: 4rem 2rem 2rem;
+    color: var(--text-light);
+    margin-top: 5rem;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h3 {
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+/* QR Code Section */
+.footer-qr {
+    text-align: center;
+    align-items: center;
+}
+
+.qr-code-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(198, 142, 23, 0.2);
+    margin: 1.5rem auto;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.qr-code-container canvas,
+.qr-code-container svg {
+    width: 180px !important;
+    height: 180px !important;
+    max-width: 100%;
+}
+
+.qr-text {
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Footer Info & Nav */
+.footer-info p {
+    margin-bottom: 1rem;
+}
+
+.footer-contact {
+    color: var(--gold-light) !important;
+    font-weight: 500;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    display: block;
+}
+
+.footer-nav a:hover {
+    color: var(--gold-light);
+    border-left-color: var(--gold-light);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .qr-code-container {
+        min-width: 160px;
+        min-height: 160px;
+    }
+
+    .qr-code-container canvas,
+    .qr-code-container svg {
+        width: 140px !important;
+        height: 140px !important;
+    }
 }

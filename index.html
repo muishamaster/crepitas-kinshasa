@@ -144,6 +144,12 @@
                 <button class="btn-whatsapp" onclick="cartManager.sendToWhatsApp()">
                     <span>📱 Via WhatsApp</span>
                 </button>
+                <button class="btn-edit-order" onclick="scrollToMenu()" title="Retourner au menu">
+                    ✎ Modifier la Commande
+                </button>
+                <button class="btn-clear-order" id="clearCartBtn" title="Vider complètement le panier">
+                    🗑️ Vider le Panier
+                </button>
             </div>
 
             <p class="footer-note">Paiement sécurisé via Mobile Money</p>
@@ -188,6 +194,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer avec QR Code -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-qr">
+                <h3>Menu Digital - Scannez le QR</h3>
+                <div id="qrCodeContainer" class="qr-code-container"></div>
+                <p class="qr-text">Scannez pour voir le menu digital de Crepitas Kinshasa</p>
+            </div>
+            <div class="footer-section footer-info">
+                <h3>À Propos</h3>
+                <p>Crepitas Kinshasa - L'art de la crêpe artisanale premium depuis 2024</p>
+                <p class="footer-contact">📍 Kinshasa, RDC</p>
+                <p class="footer-contact">📱 +243 977 970 594 (WhatsApp)</p>
+            </div>
+            <div class="footer-section footer-nav">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="menu.html">Menu Complet</a></li>
+                    <li><a href="menu-du-jour.html">Menu du Jour</a></li>
+                    <li><a href="#cart">Mon Panier</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024-2026 Crepitas Kinshasa. Tous droits réservés. | Livraison gratuite à partir de 50 000 FC</p>
+        </div>
+    </footer>
 
     <!-- Floating Action Button WhatsApp -->
     <a href="#" class="whatsapp-float" id="whatsappFloat" title="Contactez-nous sur WhatsApp">

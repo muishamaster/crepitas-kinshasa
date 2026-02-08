@@ -570,16 +570,16 @@ const cartManager = (() => {
         cartContainer.innerHTML = cart.map(item => `
             <div class="cart-item">
                 <div class="cart-item-name">
-                    <strong>${escapeHtml(item.name)}</strong>
+                    <strong>${item.quantity}x ${escapeHtml(item.name)}</strong>
                     <div class="cart-item-details">
-                        ${item.price.toLocaleString('fr-FR')} FC × ${item.quantity}
+                        ${item.price.toLocaleString('fr-FR')} FC chacun
                     </div>
                 </div>
                 <span class="cart-item-price">${(item.price * item.quantity).toLocaleString('fr-FR')} FC</span>
                 <div class="cart-item-qty-controls">
-                    <button class="btn-qty" onclick="cartManager.updateQuantity(${item.id}, ${item.quantity - 1})">−</button>
-                    <span style="width: 20px; text-align: center;">${item.quantity}</span>
-                    <button class="btn-qty" onclick="cartManager.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                    <button class="btn-qty" onclick="cartManager.updateQuantity(${item.id}, ${item.quantity - 1})" title="Diminuer">−</button>
+                    <span style="width: 20px; text-align: center; font-weight: bold;">${item.quantity}</span>
+                    <button class="btn-qty" onclick="cartManager.updateQuantity(${item.id}, ${item.quantity + 1})" title="Augmenter">+</button>
                 </div>
                 <button class="btn-remove" onclick="cartManager.removeFromCart(${item.id})" title="Supprimer">🗑️</button>
             </div>
@@ -897,6 +897,54 @@ document.addEventListener('keydown', (event) => {
 // ======================== NAVIGATION ========================
 
 /**
+ * Faire défiler vers la section du menu
+ */
+function scrollToMenu() {
+    const productsSection = document.querySelector('.products-section');
+    if (!productsSection) {
+        // Si sur une autre page, retourner à index.html
+        window.location.href = 'index.html#products';
+        return;
+    }
+    
+    productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showNotification('📝 Retournez au menu pour modifier votre commande', 'info');
+}
+
+/**
+ * ===================================================================
+ * QR CODE GENERATOR - Pour le footer (URL Render)
+ * ===================================================================
+ */
+const qrCodeGenerator = (() => {
+    const generateQRCode = () => {
+        // Attendre que le DOM soit chargé et que qrcode.js soit disponible
+        const container = document.getElementById('qrCodeContainer');
+        if (!container || typeof QRCode === 'undefined') return;
+
+        // Utiliser l'URL du site Render une fois déployé
+        const qrUrl = 'https://crepitas-kinshasa.onrender.com/';
+        
+        // Vider le container et générer le QR code
+        container.innerHTML = '';
+        new QRCode(container, {
+            text: qrUrl,
+            width: 200,
+            height: 200,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        console.log('✓ Code QR généré pour:', qrUrl);
+    };
+
+    return {
+        generate: generateQRCode
+    };
+})();
+
+/**
  * Gestion des clics sur les boutons CTA
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -905,6 +953,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Charger les produits par défaut (rebranding: Crêpes Sucrées)
     productManager.loadProducts('crepes-sucrees');
+
+    // Générer le QR Code pour le footer
+    qrCodeGenerator.generate();
 
     // Boutons CTA
     document.querySelectorAll('.btn-cta').forEach(btn => {
