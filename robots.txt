@@ -1,0 +1,38 @@
+# robots.txt pour Crepitas Kinshasa
+# Permet à Google et autres moteurs de référencer le restaurant
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /menu.html
+Allow: /menu-du-jour.html
+Allow: /boissons.html
+Allow: /entrees.html
+Allow: /plats.html
+Allow: /desserts.html
+Allow: /*.css
+Allow: /*.js
+Allow: /img/
+
+# Interdire les fichiers sensibles
+Disallow: /ADVANCED_CONFIG.js
+Disallow: /TECHNICAL_DOCS.md
+Disallow: /DEPLOYMENT_GUIDE.sh
+Disallow: /*.md
+Disallow: /*.sh
+
+# Délai de rapatriement (crawl delay)
+Crawl-delay: 1
+
+# Sitemaps (si disponible)
+# Sitemap: https://crepitas-kinshasa.onrender.com/sitemap.xml
+
+# Spécifique Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Spécifique Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

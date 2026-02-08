@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu du Jour - CREPITAS KINSHASA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="texture-overlay"></div>
+
+    <!-- Navigation principale -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>CREPITAS KINSHASA</h2>
+                <p>L'Art de la Crêpe</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="menu-du-jour.html" class="active badge-new">Menu du Jour</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cart">
+                <a href="#cart" class="cart-icon" id="cartIcon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero du Menu du Jour -->
+    <header class="hero-menu-jour">
+        <div class="hero-menu-overlay"></div>
+        <div class="hero-menu-content">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a> / <span>Menu du Jour</span>
+            </div>
+            <h1 class="hero-menu-title">Menu du Jour</h1>
+            <p class="hero-menu-subtitle">Découvrez nos spécialités fraîches sélectionnées par le Chef</p>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Section Spécialité du Chef -->
+        <section class="chef-specialty-section">
+            <div class="section-header">
+                <h2>La Spécialité du Chef Aujourd'hui</h2>
+                <p>Une création unique et délicieuse à découvrir en priorité</p>
+            </div>
+
+            <div class="chef-specialty-container">
+                <div class="chef-specialty-card">
+                    <!-- Badge Spécialité -->
+                    <div class="specialty-badge">
+                        <span class="badge-icon">⭐</span>
+                        <span class="badge-text">Spécialité</span>
+                    </div>
+
+                    <!-- Image agrandie -->
+                    <div class="chef-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1504674900684-b680b0b8d585?w=600&h=400&fit=crop" 
+                                alt="Spécialité du Chef - Crêpe du Chef" 
+                                class="chef-image">
+                        <div class="image-overlay-chef">
+                            <button class="btn-cta btn-cta-primary" onclick="addToCartFromChef()" title="Ajouter au panier">
+                                AJOUTER AU PANIER
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contenu -->
+                    <div class="chef-content">
+                        <h3 class="chef-name">Crepitas Signature</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="review-count">(48 avis)</span>
+                        </div>
+                        <p class="chef-description">
+                            Notre chef vous présente sa création maison: une crêpe signature aux textures et saveurs uniques,
+                            préparée avec des ingrédients premium et une touche caramélisée pour sublimer chaque bouchée.
+                        </p>
+                        <div class="chef-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Prix</span>
+                                <span class="detail-value price">25 000 FC</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Temps de préparation</span>
+                                <span class="detail-value">25 minutes</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Portions</span>
+                                <span class="detail-value">1-2 personnes</span>
+                            </div>
+                        </div>
+                        <div class="chef-ingredients">
+                            <h4>Ingrédients vedettes</h4>
+                            <ul>
+                                <li>Pâte fine et croustillante</li>
+                                <li>Garnitures premium (chocolat, fruits, fromage)</li>
+                                <li>Touche caramélisée</li>
+                                <li>Garniture secrète du chef</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Autres suggestions du jour -->
+        <section class="daily-suggestions-section">
+            <div class="section-header">
+                <h2>Autres Suggestions du Jour</h2>
+                <p>Complétez votre menu avec nos meilleures sélections</p>
+            </div>
+
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <img src="https://images.unsplash.com/photo-1568050109203-d6b2b1e00c36?w=300&h=250&fit=crop" alt="La Complète">
+                        <span class="suggestion-label">Galette Salée</span>
+                    </div>
+                    <div class="suggestion-content">
+                        <h4>La Complète</h4>
+                        <p class="suggestion-desc">Jambon, fromage fondant et œuf miroir</p>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-price">20 000 FC</span>
+                            <button class="btn-add-small" onclick="addToCart(3, 'La Complète', 20000)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestion 2 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=250&fit=crop" alt="La Kinoise">
+                        <span class="suggestion-label">Crêpe Sucrée</span>
+                    </div>
+                    <div class="suggestion-content">
+                        <h4>La Kinoise</h4>
+                        <p class="suggestion-desc">Banane plantain caramélisée et chocolat noir</p>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-price">18 000 FC</span>
+                            <button class="btn-add-small" onclick="addToCart(2, 'La Kinoise', 18000)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestion 3 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <img src="https://images.unsplash.com/photo-1568050109203-d6b2b1e00c36?w=300&h=250&fit=crop" alt="La Complète">
+                        <span class="suggestion-label">Galette Salée</span>
+                    </div>
+                    <div class="suggestion-content">
+                        <h4>La Complète</h4>
+                        <p class="suggestion-desc">Jambon, fromage fondant et œuf miroir</p>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-price">20 000 FC</span>
+                            <button class="btn-add-small" onclick="addToCart(3, 'La Complète', 20000)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestion 4 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <img src="https://images.unsplash.com/photo-1605350562467-06f2fe6fbf45?w=300&h=250&fit=crop" alt="Milkshake Chocolat">
+                        <span class="suggestion-label">Boisson</span>
+                    </div>
+                    <div class="suggestion-content">
+                        <h4>Milkshake Chocolat</h4>
+                        <p class="suggestion-desc">Lait, glace vanille, chocolat belge, chantilly</p>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-price">14 000 FC</span>
+                            <button class="btn-add-small" onclick="addToCart(44, 'Milkshake Chocolat', 14000)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestion 5 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop" alt="Crepitas Signature">
+                        <span class="suggestion-label">Signature</span>
+                    </div>
+                    <div class="suggestion-content">
+                        <h4>Crepitas Signature</h4>
+                        <p class="suggestion-desc">La recette secrète du chef, richesse de textures et saveurs</p>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-price">25 000 FC</span>
+                            <button class="btn-add-small" onclick="addToCart(11, 'Crepitas Signature', 25000)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestion 6 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=250&fit=crop" alt="Crêpe Fruits Rouges">
+                        <span class="suggestion-label">Crêpe Sucrée</span>
+                    </div>
+                    <div class="suggestion-content">
+                        <h4>Crêpe Fruits Rouges</h4>
+                        <p class="suggestion-desc">Fruits rouges, chantilly légère et coulis maison</p>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-price">16 000 FC</span>
+                            <button class="btn-add-small" onclick="addToCart(30, 'Crêpe Fruits Rouges', 16000)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Avantages -->
+        <section class="advantages-section">
+            <h2>Pourquoi Choisir Notre Menu du Jour?</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">🍳</div>
+                    <h3>Fraîchement Préparé</h3>
+                    <p>Tous les plats sont cuisinés le jour même avec des ingrédients frais et de qualité supérieure.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">👨‍🍳</div>
+                    <h3>Sélection du Chef</h3>
+                    <p>Notre chef expérimenté sélectionne personnellement les meilleures combinaisons culinaires.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Service Rapide</h3>
+                    <p>Livraison rapide et efficace pour que vous dégustiez vos plats chauds et savoureux.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>Meilleur Rapport Qualité-Prix</h3>
+                    <p>Les plats du jour bénéficient d'une tarification spéciale pour une meilleure valeur.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h2>Prêt à Commander?</h2>
+            <p>Consultez notre menu complet ou continuez votre commande</p>
+            <div class="cta-buttons">
+                <a href="menu.html" class="btn-cta btn-cta-secondary">VOIR LE MENU COMPLET</a>
+                <button class="btn-cta btn-cta-primary" onclick="scrollToCart()">VOIR MON PANIER</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CREPITAS KINSHASA</h3>
+                <p>L'Art de la Crêpe</p>
+                <p>Crêpes artisanales, gourmandise et élégance</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Dimanche<br>11h00 - 23h00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📱 +243 977 970 594<br>📧 contact@crepitas.cd</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CREPITAS KINSHASA. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Fonction pour ajouter au panier depuis la spécialité du chef
+        function addToCartFromChef() {
+            if (typeof cartManager !== 'undefined') {
+                cartManager.addToCart(11, 'Crepitas Signature', 25000, 1);
+            } else {
+                alert('Crepitas Signature ajouté au panier!');
+            }
+        }
+
+        // Fonction générique pour ajouter au panier
+        function addToCart(id, name, price) {
+            if (typeof cartManager !== 'undefined') {
+                cartManager.addToCart(id, name, price, 1);
+            } else {
+                alert(name + ' ajouté au panier!');
+            }
+        }
+
+        // Scroll au panier
+        function scrollToCart() {
+            window.location.href = 'menu.html#cart';
+        }
+
+        // Initialiser le panier au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof cartManager !== 'undefined' && typeof cartManager.init === 'function') {
+                cartManager.init();
+            }
+        });
+    </script>
+</body>
+</html>

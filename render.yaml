@@ -1,0 +1,51 @@
+services:
+  - type: static_site
+    name: crepitas-kinshasa
+    env: static
+    
+    # Configuration du répertoire de publication
+    staticPublishPath: .
+    
+    # URL de base (optionnel)
+    # url: https://crepitas-kinshasa.onrender.com
+    
+    # Gestion des erreurs 404 - redirige vers index.html (Important pour SPA)
+    errorDocument: index.html
+    
+    # Headers de sécurité (bonus)
+    headers:
+      - path: "/*"
+        headers:
+          - key: "X-Content-Type-Options"
+            value: "nosniff"
+          - key: "X-Frame-Options"
+            value: "SAMEORIGIN"
+          - key: "Referrer-Policy"
+            value: "strict-origin-when-cross-origin"
+    
+    # Optimisation des caches
+    routes:
+      - path: "/index.html"
+        headers:
+          - key: "Cache-Control"
+            value: "max-age=3600, must-revalidate"
+      - path: "/style.css"
+        headers:
+          - key: "Cache-Control"
+            value: "max-age=86400"
+      - path: "/script.js"
+        headers:
+          - key: "Cache-Control"
+            value: "max-age=86400"
+      - path: "/*.html"
+        headers:
+          - key: "Cache-Control"
+            value: "max-age=3600, must-revalidate"
+
+# Région de déploiement (optionnel)
+# region: oregon (par défaut)
+
+# Variables d'environnement (si nécessaire)
+# envVars:
+#   - key: ENVIRONMENT
+#     value: production

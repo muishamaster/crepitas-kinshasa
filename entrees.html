@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crêpes Sucrées - CREPITAS KINSHASA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="texture-overlay"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>CREPITAS KINSHASA</h2>
+                <p>L'Art de la Crêpe</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="menu-du-jour.html" class="badge-new">Menu du Jour</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cart">
+                <a href="#cart" class="cart-icon" id="cartIcon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section id="menu" class="menu-section">
+            <div class="menu-header">
+                <h2>🍓 Crêpes Sucrées</h2>
+                <p>Savourez nos crêpes artisanales, sucrées et irrésistibles.</p>
+            </div>
+
+            <div class="category-tabs">
+                <a href="entrees.html" class="category-btn active" data-category="crepes-sucrees">
+                    <span class="icon">🍓</span> Crêpes Sucrées
+                </a>
+                <a href="plats.html" class="category-btn" data-category="galettes-salees">
+                    <span class="icon">🥬</span> Galettes Salées
+                </a>
+                <a href="desserts.html" class="category-btn" data-category="signatures">
+                    <span class="icon">✨</span> Signatures Crepitas
+                </a>
+                <a href="boissons.html" class="category-btn" data-category="boissons">
+                    <span class="icon">🥤</span> Milkshakes & Boissons
+                </a>
+            </div>
+
+            <div class="product-list" id="productList"></div>
+        </section>
+
+        <aside class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3>Votre Commande</h3>
+                <button class="btn-clear-cart" id="clearCartBtn" title="Vider le panier">✕</button>
+            </div>
+            
+            <div class="cart-items-container">
+                <div id="cart-items" class="cart-items">
+                    <p class="empty-cart">Votre panier est vide</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="cart-summary">
+                <div class="summary-line">
+                    <span>Sous-total</span>
+                    <span id="subtotal">0 FC</span>
+                </div>
+                <div class="summary-line">
+                    <span>Frais de livraison</span>
+                    <span id="delivery-fee">1.000 FC</span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <span id="total-price">1.000 FC</span>
+                </div>
+            </div>
+
+            <div class="cart-actions">
+                <button class="btn-pay" id="paymentBtn" onclick="cartManager.openPaymentModal()">PASSER LA COMMANDE</button>
+                <button class="btn-whatsapp" onclick="cartManager.sendToWhatsApp()">
+                    <span>📱 Via WhatsApp</span>
+                </button>
+            </div>
+
+            <p class="footer-note">Paiement sécurisé via Mobile Money</p>
+
+            <div class="qr-code-section">
+                <button class="btn-qr-toggle" onclick="toggleQRCode()">
+                    📱 Afficher QR Code Menu
+                </button>
+                <div id="qrCodeContainer" class="qr-code-container hidden"></div>
+            </div>
+        </aside>
+    </main>
+
+    <div class="modal" id="paymentModal">
+        <div class="modal-content payment-modal">
+            <button class="modal-close" onclick="cartManager.closePaymentModal()">✕</button>
+            <h2>Sélectionnez Votre Mode de Paiement</h2>
+            
+            <div class="payment-options">
+                <button class="payment-option" onclick="cartManager.processPayment('mpesa')">
+                    <div class="payment-option-icon">📱</div>
+                    <span>M-Pesa</span>
+                    <small>*256# pour accéder</small>
+                </button>
+                <button class="payment-option" onclick="cartManager.processPayment('airtel')">
+                    <div class="payment-option-icon">📱</div>
+                    <span>Airtel Money</span>
+                    <small>*144# pour accéder</small>
+                </button>
+                <button class="payment-option" onclick="cartManager.processPayment('orange')">
+                    <div class="payment-option-icon">📱</div>
+                    <span>Orange Money</span>
+                    <small>*150# pour accéder</small>
+                </button>
+            </div>
+
+            <div class="payment-info">
+                <p><strong>Montant à payer:</strong> <span id="paymentAmount">0 FC</span></p>
+                <p class="info-text">Vous serez redirigé vers votre application de paiement mobile.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="whatsapp-float" id="whatsappFloat" title="Contactez-nous sur WhatsApp">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.364-3.905 6.75-1.897 10.391 1.672 2.904 5.291 3.118 8.632 3.118h.46a9.75 9.75 0 003.464-.6l3.585 1.241a.18.18 0 00.248-.204l-1.081-3.93a9.8 9.8 0 001.175-5.621c-.001-5.487-4.144-9.95-9.451-9.95"></path>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            cartManager.init();
+            productManager.loadProducts('crepes-sucrees');
+        });
+    </script>
+</body>
+</html>

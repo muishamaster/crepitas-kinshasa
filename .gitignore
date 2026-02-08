@@ -1,0 +1,41 @@
+# Fichiers système
+.DS_Store
+.env
+.env.local
+Thumbs.db
+
+# Dossiers de dépendances (si Node.js est utilisé)
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE & Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# Fichiers de build/logs
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Cache
+.cache/
+*.cache
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+
+# Secrets (à ne JAMAIS commiter)
+.env
+.env.local
+.env.*.local
+secrets.json
+api_keys.json
