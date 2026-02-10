@@ -1,38 +1,63 @@
-# robots.txt pour Crepitas Kinshasa
-# Permet à Google et autres moteurs de référencer le restaurant
+# robots.txt pour Crepitas Kinshasa v3.0.0
+# Configuration SEO pour moteurs de recherche locaux (Kinshasa, RDC)
 
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /menu.html
-Allow: /menu-du-jour.html
-Allow: /boissons.html
-Allow: /entrees.html
-Allow: /plats.html
-Allow: /desserts.html
+Allow: /pages/menu.html
+Allow: /pages/cart.html
+Allow: /pages/faq.html
+Allow: /pages/contact.html
+Allow: /pages/account.html
+Allow: /src/data/menu.json
 Allow: /*.css
 Allow: /*.js
+Allow: /src/css/
+Allow: /src/js/
 Allow: /img/
+Allow: /index.html
 
 # Interdire les fichiers sensibles
-Disallow: /ADVANCED_CONFIG.js
-Disallow: /TECHNICAL_DOCS.md
-Disallow: /DEPLOYMENT_GUIDE.sh
-Disallow: /*.md
-Disallow: /*.sh
+Disallow: *.tmp
+Disallow: .env
+Disallow: /admin/
+Disallow: /config/
+Disallow: *.md
+Disallow: *.sh
+Disallow: .git/
 
-# Délai de rapatriement (crawl delay)
+# Délai de rapatriement
 Crawl-delay: 1
+Request-rate: 30/60 
 
-# Sitemaps (si disponible)
-# Sitemap: https://crepitas-kinshasa.onrender.com/sitemap.xml
-
-# Spécifique Google
+# Spécifique à Google (priorité haute)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
+Crawl-delay: 0.5
+Request-rate: 50/60
 
-# Spécifique Bing
+# Spécifique à Bing (priorité moyenne)
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+
+# Spécifique à Baidu (si trafic Chine)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Spécifique à Yandex
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 1
+
+# Spécifique à DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Activer le sitemap
+Sitemap: https://crepitas-kinshasa.onrender.com/sitemap.xml
+
+# Propriétés Google
+# google-site-verification: xxxxx (à ajouter après vérification)
+

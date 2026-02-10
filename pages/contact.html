@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez-nous - Crepitas Kinshasa">
+    <meta name="keywords" content="contact, support, aide, téléphone, email">
+    <meta property="og:title" content="Nous Contacter | Crepitas Kinshasa">
+    <meta property="og:description" content="Prenez contact avec notre équipe">
+    <meta property="og:type" content="website">
+    
+    <title>Nous Contacter - Crepitas Kinshasa</title>
+    <link rel="stylesheet" href="../src/css/common.css">
+    <link rel="stylesheet" href="../src/css/contact.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="app-header"></div>
+
+    <main class="contact-container">
+        <div class="page-header">
+            <h1>📞 Nous Contacter</h1>
+            <p class="subtitle">Nous sommes là pour vous aider</p>
+        </div>
+
+        <div class="contact-content">
+            <!-- Formulaire de contact -->
+            <div class="contact-form-section">
+                <h2>Envoyez-nous un message</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="contactName">Nom complet *</label>
+                        <input type="text" id="contactName" maxlength="50" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Email *</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactPhone">Téléphone *</label>
+                        <input type="tel" id="contactPhone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject">Sujet *</label>
+                        <select id="contactSubject" required>
+                            <option value="">-- Sélectionner un sujet --</option>
+                            <option value="support">Support Client</option>
+                            <option value="complaint">Réclamation</option>
+                            <option value="partnership">Partenariat</option>
+                            <option value="feedback">Avis et Suggestions</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Message *</label>
+                        <textarea id="contactMessage" maxlength="1000" placeholder="Écrivez votre message ici..." required></textarea>
+                        <small id="charCount">0 / 1000 caractères</small>
+                    </div>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" id="contactPrivacy" required>
+                        <span>J'accepte de recevoir une réponse à mon email</span>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary btn-submit">Envoyer le message</button>
+                </form>
+            </div>
+
+            <!-- Informations de contact -->
+            <aside class="contact-info">
+                <h2>Nos Coordonnées</h2>
+
+                <div class="info-card">
+                    <h3>📞 Téléphone</h3>
+                    <p>
+                        <strong>Commandes:</strong><br>
+                        <a href="tel:+243123456789">+243 (0)1 234 567 89</a>
+                    </p>
+                    <p>
+                        <strong>Support:</strong><br>
+                        <a href="tel:+243987654321">+243 (0)98 765 432 1</a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📱 Réseaux Sociaux</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/243123456789" target="_blank" class="social-btn">
+                            <span>💬</span> WhatsApp
+                        </a>
+                        <a href="https://facebook.com/crepitaskinshasa" target="_blank" class="social-btn">
+                            <span>f</span> Facebook
+                        </a>
+                        <a href="https://instagram.com/crepitaskinshasa" target="_blank" class="social-btn">
+                            <span>📷</span> Instagram
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>🕒 Horaires d'Ouverture</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="day">Lundi - Vendredi:</span>
+                            <span class="time">10h00 - 22h00</span>
+                        </li>
+                        <li>
+                            <span class="day">Samedi:</span>
+                            <span class="time">12h00 - 23h00</span>
+                        </li>
+                        <li>
+                            <span class="day">Dimanche:</span>
+                            <span class="time">12h00 - 22h00</span>
+                        </li>
+                        <li>
+                            <span class="day">Jours fériés:</span>
+                            <span class="time">12h00 - 21h00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>📍 Localisation</h3>
+                    <p>
+                        Kinshasa, République Démocratique du Congo<br>
+                        <small>Commune de Kalamu</small>
+                    </p>
+                    <a href="https://maps.google.com/?q=Kinshasa,+RDC" target="_blank" class="btn btn-secondary">
+                        Voir sur Google Maps
+                    </a>
+                </div>
+
+                <div class="info-card emergency">
+                    <h3>⏰ Urgence?</h3>
+                    <p>Appelez directement notre équipe de support</p>
+                    <a href="tel:+243123456789" class="emergency-call">
+                        Appeler maintenant
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Questions fréquentes rapides -->
+        <div class="quick-faq">
+            <h2>Questions Fréquentes</h2>
+            <div class="quick-faq-grid">
+                <div class="faq-card">
+                    <h4>❓ Quelle est votre politique de retour?</h4>
+                    <p>Lire notre <a href="../pages/faq.html">FAQ</a> pour plus d'informations détaillées.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>📦 Quand ma commande sera-t-elle livrée?</h4>
+                    <p>Généralement 30 à 60 minutes. Consultez votre panier pour les délais exacts.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>💳 Quels modes de paiement acceptez-vous?</h4>
+                    <p>Mobile Money, Espèces, Carte Bancaire, Virement. Voir <a href="../pages/faq.html">FAQ</a>.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>🍽️ Puis-je personnaliser ma commande?</h4>
+                    <p>Oui! Vous pouvez ajouter des notes lors de votre commande pour vos préférences.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de confirmation -->
+    <div id="successModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content success">
+            <div class="success-icon">✓</div>
+            <h3>Message envoyé!</h3>
+            <p id="successMessage"></p>
+            <p class="small-text">Nous vous répondrons dans les 24h.</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="app-footer"></div>
+
+    <!-- Scripts -->
+    <script src="../src/js/common.js"></script>
+    <script src="../src/js/cart.js"></script>
+    <script src="../src/js/users.js"></script>
+    <script src="../src/js/theme.js"></script>
+    <script src="../src/js/ratings.js"></script>
+    <script src="./contact.js"></script>
+</body>
+</html>

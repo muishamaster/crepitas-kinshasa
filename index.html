@@ -1,44 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crepitas Kinshasa - Crêperie artisanale premium à Kinshasa, RDC">
+    <meta name="keywords" content="crêpes, crêperie, restaurant, Kinshasa, livraison, commande">
+    <meta property="og:title" content="Crepitas Kinshasa | Crêperie Artisanale Premium">
+    <meta property="og:description" content="L'art de la crêpe artisanale à Kinshasa">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1589080734173-1fdded0a0a4f?w=1200">
+    
     <title>Crepitas Kinshasa | Crêperie Artisanale Premium</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Intégration QR Code Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="src/css/common.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="index">
     <!-- Texture de fond premium -->
     <div class="texture-overlay"></div>
 
-    <!-- Navigation principale -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <h2>CREPITAS KINSHASA</h2>
-                <p>L'Art de la Crêpe</p>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="menu-du-jour.html" class="badge-new">Menu du Jour</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-cart">
-                <a href="#cart" class="cart-icon" id="cartIcon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Header injecté par common.js -->
+    <div id="app-header"></div>
+
+    <!-- Navigation principale (ancienne, peut-être redondante si header est injecté) -->
 
     <!-- Section Hero Premium -->
     <header class="hero">
@@ -231,7 +218,16 @@
         </svg>
     </a>
 
-    <!-- Script principal -->
-    <script src="script.js"></script>
+    <!-- Footer injecté par common.js -->
+    <div id="app-footer"></div>
+
+    <!-- Scripts de modules en ordre de dépendance -->
+    <script src="src/js/common.js"></script>
+    <script src="src/js/cart.js"></script>
+    <script src="src/js/users.js"></script>
+    <script src="src/js/theme.js"></script>
+    <script src="src/js/ratings.js"></script>
+    <!-- Script legacy pour cette page (le style.css garde les styles actuels) -->
+    <script src="script.js" defer></script>
 </body>
 </html>

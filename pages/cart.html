@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panier de commande - Crepitas Kinshasa">
+    <meta name="keywords" content="panier, commande, restaurant, Kinshasa">
+    <meta property="og:title" content="Panier | Crepitas Kinshasa">
+    <meta property="og:description" content="Consultez et gérez votre panier de commande">
+    <meta property="og:type" content="website">
+    
+    <title>Panier - Crepitas Kinshasa</title>
+    <link rel="stylesheet" href="../src/css/common.css">
+    <link rel="stylesheet" href="../src/css/cart-page.css">
+</head>
+<body>
+    <!-- Header injecté par common.js -->
+    <div id="app-header"></div>
+
+    <main class="cart-container">
+        <div class="page-header">
+            <h1>🛒 Mon Panier</h1>
+            <p class="subtitle">Vérifiez et finalisez votre commande</p>
+        </div>
+
+        <!-- État panier vide -->
+        <div id="emptyCartState" class="empty-state hidden">
+            <div class="empty-icon">🛒</div>
+            <h2>Panier vide</h2>
+            <p>Explorez notre menu et ajoutez des produits à votre panier</p>
+            <a href="../pages/menu.html" class="btn btn-primary">Voir le menu</a>
+        </div>
+
+        <!-- Panier avec articles -->
+        <div id="cartContent" class="cart-content hidden">
+            <div class="cart-items-section">
+                <h2 class="section-title">Articles dans votre panier</h2>
+                <div id="cartItemsList" class="cart-items-list">
+                    <!-- Items générés par cart.js -->
+                </div>
+            </div>
+
+            <!-- Résumé de commande -->
+            <aside class="cart-summary">
+                <div class="summary-card">
+                    <h3>Résumé de la commande</h3>
+                    
+                    <div class="summary-item">
+                        <span>Sous-total:</span>
+                        <strong id="subtotalDisplay">0 FC</strong>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Frais de livraison:</span>
+                        <div class="delivery-options">
+                            <label class="radio-option">
+                                <input type="radio" name="deliveryType" value="delivery" checked>
+                                <span>À domicile (+1000 FC)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="deliveryType" value="onPlace">
+                                <span>Sur place (gratuit)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="deliveryType" value="takeaway">
+                                <span>À emporter (gratuit)</span>
+                            </label>
+                        </div>
+                        <div id="tableNumberSection" class="table-number-section">
+                            <label for="tableNumber">Numéro de table:</label>
+                            <input type="number" id="tableNumber" placeholder="Ex: 5" min="1" max="50">
+                        </div>
+                        <strong id="deliveryFeeDisplay">1000 FC</strong>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <strong id="totalDisplay">0 FC</strong>
+                    </div>
+
+                    <button id="checkoutBtn" class="btn btn-primary btn-full">
+                        Passer la commande
+                    </button>
+                    
+                    <button id="continueShopping" class="btn btn-secondary btn-full">
+                        Continuer les achats
+                    </button>
+                </div>
+
+                <!-- Promo code -->
+                <div class="promo-section">
+                    <h4>Code promo</h4>
+                    <div class="promo-input">
+                        <input type="text" id="promoCode" placeholder="Entrez un code">
+                        <button id="applyPromo" class="btn btn-small">Appliquer</button>
+                    </div>
+                    <small class="promo-hint">Codes disponibles: WELCOME10 (10%), FRIDAY20 (20%)</small>
+                </div>
+
+                <!-- Modes de paiement -->
+                <div class="payment-methods">
+                    <h4>Modes de paiement</h4>
+                    <div class="methods-grid">
+                        <button class="payment-method" data-method="mobile-money">
+                            <span class="method-icon">📱</span>
+                            <span>Mobile Money</span>
+                        </button>
+                        <button class="payment-method" data-method="cash">
+                            <span class="method-icon">💵</span>
+                            <span>Espèces</span>
+                        </button>
+                        <button class="payment-method" data-method="card">
+                            <span class="method-icon">💳</span>
+                            <span>Carte Bancaire</span>
+                        </button>
+                        <button class="payment-method" data-method="transfer">
+                            <span class="method-icon">🏦</span>
+                            <span>Virement</span>
+                        </button>
+                    </div>
+                    <p id="selectedMethod" class="selected-method"></p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Modal de confirmation de suppression -->
+    <div id="removeConfirmModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <h3>Confirmer la suppression</h3>
+            <p id="removeConfirmText"></p>
+            <div class="modal-buttons">
+                <button id="confirmRemove" class="btn btn-danger">Supprimer</button>
+                <button id="cancelRemove" class="btn btn-secondary">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de détails personnalisation -->
+    <div id="customizeModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content customize-modal">
+            <h3>Modifier les options</h3>
+            <div id="customizeContent" class="customize-content">
+                <!-- Contenu généré par le script -->
+            </div>
+            <div class="modal-buttons">
+                <button id="saveCustomize" class="btn btn-primary">Enregistrer</button>
+                <button id="cancelCustomize" class="btn btn-secondary">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer injecté par common.js -->
+    <div id="app-footer"></div>
+
+    <!-- Scripts en ordre de dépendance -->
+    <script src="../src/js/common.js"></script>
+    <script src="../src/js/cart.js"></script>
+    <script src="../src/js/users.js"></script>
+    <script src="../src/js/theme.js"></script>
+    <script src="../src/js/ratings.js"></script>
+    <script src="./cart-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ - Crepitas Kinshasa - Réponses aux questions fréquentes">
+    <meta name="keywords" content="faq, questions, aide, support, livraison, paiement">
+    <meta property="og:title" content="FAQ | Crepitas Kinshasa">
+    <meta property="og:description" content="Trouvez les réponses aux questions fréquemment posées">
+    <meta property="og:type" content="website">
+    
+    <title>FAQ - Crepitas Kinshasa</title>
+    <link rel="stylesheet" href="../src/css/common.css">
+    <link rel="stylesheet" href="../src/css/faq.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="app-header"></div>
+
+    <main class="faq-container">
+        <div class="page-header">
+            <h1>❓ Questions Fréquemment Posées</h1>
+            <p class="subtitle">Trouvez les réponses à vos questions</p>
+        </div>
+
+        <div class="faq-search">
+            <input type="text" id="faqSearch" placeholder="🔍 Rechercher une question...">
+        </div>
+
+        <!-- Catégories FAQ -->
+        <div class="faq-categories">
+            <button class="category-btn active" data-category="all">Toutes</button>
+            <button class="category-btn" data-category="delivery">📦 Livraison</button>
+            <button class="category-btn" data-category="payment">💳 Paiement</button>
+            <button class="category-btn" data-category="products">🍽️ Produits</button>
+            <button class="category-btn" data-category="account">👤 Compte</button>
+            <button class="category-btn" data-category="allergies">⚠️ Allergies</button>
+        </div>
+
+        <!-- Liste des FAQ -->
+        <div class="faq-list">
+            <!-- Livraison -->
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question">
+                    <h3>Quels sont les délais de livraison?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Les délais de livraison sont généralement entre <strong>30 à 60 minutes</strong> selon votre localisation à Kinshasa. Les commandes sur place sont préparées en <strong>10 à 15 minutes</strong> en moyenne.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question">
+                    <h3>Y a-t-il des frais de livraison?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, les frais de livraison sont de <strong>1 000 FC</strong> pour toutes les adresses à Kinshasa. La livraison est <strong>gratuite</strong> pour les commandes sur place et à emporter.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question">
+                    <h3>Livrez-vous dans tous les quartiers de Kinshasa?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nous livrons dans la plupart des quartiers de Kinshasa. Cependant, certaines zones éloignées peuvent avoir des délais supplémentaires. Lors de votre commande, vous pourrez vérifier la disponibilité pour votre adresse.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question">
+                    <h3>Comment puis-je suivre ma commande?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Connectez-vous à votre compte et allez dans <strong>« Mes Commandes »</strong>. Vous verrez le statut de votre commande et un numéro de suivi. Nous vous contacterons également par SMS ou appel pour confirmer la livraison.</p>
+                </div>
+            </div>
+
+            <!-- Paiement -->
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>Quels sont les modes de paiement acceptés?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nous acceptons:</p>
+                    <ul>
+                        <li>📱 <strong>Mobile Money</strong> (M-Pesa, Airtel, Orange)</li>
+                        <li>💵 <strong>Espèces</strong> à la livraison</li>
+                        <li>💳 <strong>Carte bancaire</strong> (Visa, Mastercard)</li>
+                        <li>🏦 <strong>Virement bancaire</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>Ma commande est-elle sécurisée?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, absolument! Vos données de paiement sont chiffrées et sécurisées. Nous n'avons jamais accès à vos informations bancaires complètes. Pour le paiement en ligne, nous utilisons des passerelles de paiement certifiées PCI-DSS.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>Puis-je payer en espèces à la livraison?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui! Vous pouvez option <strong>« Payer à la livraison »</strong> lors de votre commande. Notre livreur aura une caisse de change pour accepter vos espèces.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="payment">
+                <div class="faq-question">
+                    <h3>Avez-vous des codes promo?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui! Nous offrons régulièrement des codes promo:</p>
+                    <ul>
+                        <li><strong>WELCOME10</strong> - 10% pour les nouveaux clients</li>
+                        <li><strong>FRIDAY20</strong> - 20% chaque vendredi</li>
+                        <li><strong>REGULAR5</strong> - 5% pour les clients fidèles</li>
+                    </ul>
+                    <p>Entrez le code lors de votre paiement!</p>
+                </div>
+            </div>
+
+            <!-- Produits -->
+            <div class="faq-item" data-category="products">
+                <div class="faq-question">
+                    <h3>Vos crêpes sont-elles préparées fraiches?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolument! Toutes nos crêpes sont préparées <strong>à la commande</strong> avec des ingrédients frais. Nous ne servons jamais de crêpes pré-préparées ou réchauffées.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="products">
+                <div class="faq-question">
+                    <h3>Puis-je personnaliser mon produit?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui! Vous pouvez personnaliser vos crêpes et plats:</p>
+                    <ul>
+                        <li>Ajouter ou enlever des ingrédients</li>
+                        <li>Choisir votre sauce</li>
+                        <li>Sélectionner votre accompagnement</li>
+                        <li>Spécifier votre niveau de cuisson pour les œufs</li>
+                    </ul>
+                    <p>Faites vos demandes lors de la commande dans les notes speciales.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="products">
+                <div class="faq-question">
+                    <h3>Avez-vous des options végétariennes?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, nous avons plusieurs options végétariennes:</p>
+                    <ul>
+                        <li>Crêpes aux légumes grillés</li>
+                        <li>Salade verte frappée</li>
+                        <li>Assiette végétarienne complète</li>
+                        <li>Crêpes sucrées (toutes disponibles)</li>
+                    </ul>
+                    <p>Filtre « Végétarien » dans notre menu pour voir toutes les options.</p>
+                </div>
+            </div>
+
+            <!-- Compte -->
+            <div class="faq-item" data-category="account">
+                <div class="faq-question">
+                    <h3>Comment créer un compte?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>C'est très simple:</p>
+                    <ol>
+                        <li>Cliquez sur <strong>« Mon Compte »</strong></li>
+                        <li>Choisissez <strong>« S'inscrire »</strong></li>
+                        <li>Remplissez vos informations</li>
+                        <li>Cliquez sur <strong>« S'inscrire »</strong></li>
+                    </ol>
+                    <p>Votre compte est créé instantanément!</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+                <div class="faq-question">
+                    <h3>J'ai oublié mon mot de passe</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Actuellement, nous ne disposons pas de fonction de réinitialisation de mot de passe en ligne. <strong>Contactez-nous</strong> pour créer un nouveau compte ou supprimer l'ancien.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+                <div class="faq-question">
+                    <h3>Comment avoir un historique de mes commandes?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Connectez-vous à votre compte et allez dans <strong>« Mes Commandes »</strong>. Vous verrez l'historique complet de toutes vos commandes avec les détails (articles, prix, statut, date).</p>
+                </div>
+            </div>
+
+            <!-- Allergies -->
+            <div class="faq-item" data-category="allergies">
+                <div class="faq-question">
+                    <h3>Comment gérer les allergies?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nous prenons les allergies très au sérieux! Chaque produit affiche les allergènes potentiels. Vous pouvez filtrer les produits par allergènes et ajouter des notes spéciales lors de votre commande.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="allergies">
+                <div class="faq-question">
+                    <h3>Vos crêpes contiennent-elles du gluten?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, la plupart de nos crêpes contiennent du gluten. Cependant, nous pouvons préparer des crêpes sans gluten sur demande. Contactez-nous pour plus d'informations sur notre processus de préparation sans allergènes croisés.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="allergies">
+                <div class="faq-question">
+                    <h3>Avez-vous des options sans lactose?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Plusieurs de nos produits peuvent être préparés sans lactose. Filtrez par allergène « lactose » dans le menu ou contactez-nous directement pour des recommandations personnalisées.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section contact -->
+        <div class="faq-contact-section">
+            <h2>Vous n'avez pas trouvé la réponse?</h2>
+            <p>Contactez-nous directement, nous serons heureux de vous aider!</p>
+            <div class="contact-methods">
+                <a href="tel:+243123456789" class="contact-method">
+                    <span>📞</span>
+                    <span>+243 (0)123 456 789</span>
+                </a>
+                <a href="https://wa.me/243123456789" target="_blank" class="contact-method">
+                    <span>💬</span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="../pages/contact.html" class="contact-method">
+                    <span>📧</span>
+                    <span>Formulaire de contact</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="app-footer"></div>
+
+    <!-- Scripts -->
+    <script src="../src/js/common.js"></script>
+    <script src="../src/js/cart.js"></script>
+    <script src="../src/js/users.js"></script>
+    <script src="../src/js/theme.js"></script>
+    <script src="../src/js/ratings.js"></script>
+    <script src="./faq.js"></script>
+</body>
+</html>

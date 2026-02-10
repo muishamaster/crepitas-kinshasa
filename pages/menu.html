@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Crepitas Kinshasa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="../src/css/common.css">
+  <link rel="stylesheet" href="../src/css/menu.css">
+</head>
+<body>
+  <div id="app-header"></div>
+  
+  <main>
+    <!-- Section Filtrage -->
+    <section class="menu-filters">
+      <h1>📋 Notre Menu</h1>
+      
+      <div class="filter-container">
+        <!-- Filtre par catégorie -->
+        <div class="filter-group">
+          <label>Catégories:</label>
+          <div class="category-filters">
+            <button class="filter-btn active" data-category="all">Tous les produits</button>
+            <button class="filter-btn" data-category="crepes-sucrees">🍯 Crêpes Sucrées</button>
+            <button class="filter-btn" data-category="crepes-salees">🧀 Crêpes Salées</button>
+            <button class="filter-btn" data-category="entrees">🥗 Entrées</button>
+            <button class="filter-btn" data-category="plats">🍛 Plats Principaux</button>
+          </div>
+        </div>
+
+        <!-- Filtre par type de commande -->
+        <div class="filter-group">
+          <label>Type de commande:</label>
+          <div class="order-type-filters">
+            <label class="radio-label">
+              <input type="radio" name="orderType" value="both" checked>
+              Tous
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="orderType" value="delivery">
+              À Emporter
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="orderType" value="onPlace">
+              Sur Place
+            </label>
+          </div>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div class="filter-group">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="🔍 Chercher un produit..."
+            class="search-input"
+          >
+        </div>
+
+        <!-- Filtres avancés -->
+        <div class="filter-group">
+          <label>
+            <input type="checkbox" id="vegetarianFilter">
+            Végétarien
+          </label>
+          <label>
+            <input type="checkbox" id="allergyFilter">
+            Afficher les allergènes
+          </label>
+        </div>
+
+        <!-- Tri -->
+        <div class="filter-group">
+          <label>Trier par:</label>
+          <select id="sortBy">
+            <option value="name">Nom (A-Z)</option>
+            <option value="price-asc">Prix (Croissant)</option>
+            <option value="price-desc">Prix (Décroissant)</option>
+            <option value="rating">Meilleure note</option>
+            <option value="popular">Plus populaire</option>
+          </select>
+        </div>
+
+        <!-- Bouton Réinitialiser -->
+        <button class="btn-reset-filters">🔄 Réinitialiser les filtres</button>
+      </div>
+    </section>
+
+    <!-- Résumé des filtres appliqués -->
+    <div class="active-filters" id="activeFilters"></div>
+
+    <!-- Grille de produits -->
+    <section class="products-section">
+      <div class="products-grid" id="productsGrid">
+        <!-- Produits chargés dynamiquement -->
+      </div>
+    </section>
+
+    <!-- Message "aucun résultat" -->
+    <div class="no-results" id="noResults" style="display: none;">
+      <p>Aucun produit ne correspond à votre recherche.</p>
+      <button class="btn-secondary" onclick="resetFilters()">Réinitialiser les filtres</button>
+    </div>
+  </main>
+
+  <div id="app-footer"></div>
+
+  <!-- Modal Produit Détaillé -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div id="productDetails"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../src/js/common.js"></script>
+  <script src="../src/js/cart.js"></script>
+  <script src="../src/js/users.js"></script>
+  <script src="../src/js/theme.js"></script>
+  <script src="../src/js/ratings.js"></script>
+  <script src="./menu.js"></script>
+</body>
+</html>

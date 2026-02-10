@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mon compte - Crepitas Kinshasa">
+    <meta name="keywords" content="compte, profil, connexion, enregistrement">
+    <meta property="og:title" content="Mon Compte | Crepitas Kinshasa">
+    <meta property="og:description" content="Gérez votre compte et vos commandes">
+    <meta property="og:type" content="website">
+    
+    <title>Mon Compte - Crepitas Kinshasa</title>
+    <link rel="stylesheet" href="../src/css/common.css">
+    <link rel="stylesheet" href="../src/css/account.css">
+</head>
+<body>
+    <!-- Header injecté par common.js -->
+    <div id="app-header"></div>
+
+    <main class="account-container">
+        <!-- Vue authentifiée (utilisateur connecté) -->
+        <div id="authenticatedView" class="auth-view hidden">
+            <div class="profile-header">
+                <div class="profile-avatar" id="profileAvatar">👤</div>
+                <div class="profile-info">
+                    <h1 id="userName">Nom Utilisateur</h1>
+                    <p id="userEmail">email@example.com</p>
+                    <p id="userPhone">+243 XXX XXX XXX</p>
+                </div>
+                <button id="logout-btn" class="btn btn-logout">Se déconnecter</button>
+            </div>
+
+            <div class="tabs-navigation">
+                <button class="tab-btn active" data-tab="profile">👤 Profil</button>
+                <button class="tab-btn" data-tab="orders">📦 Mes Commandes</button>
+                <button class="tab-btn" data-tab="addresses">📍 Adresses</button>
+                <button class="tab-btn" data-tab="settings">⚙️ Paramètres</button>
+            </div>
+
+            <!-- Onglet Profil -->
+            <div class="tab-content active" id="profile-tab">
+                <div class="profile-section">
+                    <h2>Informations personnelles</h2>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="editName">Nom complet:</label>
+                                <input type="text" id="editName" maxlength="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPhone">Téléphone:</label>
+                                <input type="tel" id="editPhone" pattern="^\+?[0-9\s\-\(\)]{7,}$" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="editEmail">Email:</label>
+                                <input type="email" id="editEmail" disabled>
+                                <small>L'email ne peut pas être modifié</small>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                    </form>
+
+                    <h2 style="margin-top: 40px;">Changer le mot de passe</h2>
+                    <form id="passwordForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="currentPassword">Mot de passe actuel:</label>
+                            <input type="password" id="currentPassword" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newPassword">Nouveau mot de passe:</label>
+                            <input type="password" id="newPassword" minlength="4" required>
+                            <small>Minimum 4 caractères</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmer mot de passe:</label>
+                            <input type="password" id="confirmPassword" minlength="4" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Changer le mot de passe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Onglet Commandes -->
+            <div class="tab-content" id="orders-tab">
+                <div class="profile-section">
+                    <h2>Mes Commandes</h2>
+                    <div id="ordersList" class="orders-list">
+                        <!-- Commandes générées par le script -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Adresses -->
+            <div class="tab-content" id="addresses-tab">
+                <div class="profile-section">
+                    <h2>Mes Adresses de Livraison</h2>
+                    
+                    <div class="add-address-section">
+                        <h3>Ajouter une nouvelle adresse</h3>
+                        <form id="addAddressForm" class="address-form">
+                            <div class="form-group">
+                                <label for="addressLabel">Étiquette (Domicile, Bureau, etc):</label>
+                                <input type="text" id="addressLabel" maxlength="30" placeholder="Domicile" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="addressStreet">Rue/Quartier:</label>
+                                <input type="text" id="addressStreet" maxlength="100" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addressDistrict">Commune:</label>
+                                    <input type="text" id="addressDistrict" maxlength="50" placeholder="Kalamu, Lingwala, etc" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressPhone">Téléphone (optionnel):</label>
+                                    <input type="tel" id="addressPhone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="addressNotes">Notes supplémentaires:</label>
+                                <textarea id="addressNotes" maxlength="200" placeholder="Près de..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Ajouter cette adresse</button>
+                        </form>
+                    </div>
+
+                    <div class="addresses-list" id="addressesList">
+                        <!-- Adresses générées par le script -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Paramètres -->
+            <div class="tab-content" id="settings-tab">
+                <div class="profile-section">
+                    <h2>Préférences</h2>
+                    
+                    <div class="settings-group">
+                        <h3>Notifications</h3>
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span>Recevoir les notifications par email</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="smsNotifications">
+                            <span>Recevoir les notifications par SMS</span>
+                        </label>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Thème</h3>
+                        <label class="checkbox-option">
+                            <input type="radio" name="theme" value="light" checked>
+                            <span>Mode clair ☀️</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="radio" name="theme" value="dark">
+                            <span>Mode sombre 🌙</span>
+                        </label>
+                    </div>
+
+                    <div class="settings-group danger-zone">
+                        <h3>Zone Danger</h3>
+                        <p>Ces actions sont irréversibles</p>
+                        <button id="deleteAccount" class="btn btn-danger">Supprimer mon compte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vue non-authentifiée -->
+        <div id="unauthenticatedView" class="unauth-view">
+            <div class="auth-container">
+                <div class="tabs-auth">
+                    <button class="tab-auth-btn active" data-tab="login">Connexion</button>
+                    <button class="tab-auth-btn" data-tab="register">S'inscrire</button>
+                </div>
+
+                <!-- Tab Connexion -->
+                <form id="loginForm" class="auth-form active">
+                    <h2>Se connecter</h2>
+                    
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Mot de passe:</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Connexion</button>
+                    
+                    <p class="auth-hint">Pas encore inscrit? <a href="#register" class="tab-auth-btn" data-tab="register">Créer un compte</a></p>
+                </form>
+
+                <!-- Tab Inscription -->
+                <form id="registerForm" class="auth-form">
+                    <h2>Créer un compte</h2>
+                    
+                    <div class="form-group">
+                        <label for="registerName">Nom complet:</label>
+                        <input type="text" id="registerName" maxlength="50" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail">Email:</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPhone">Téléphone:</label>
+                        <input type="tel" id="registerPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword">Mot de passe:</label>
+                        <input type="password" id="registerPassword" minlength="4" required>
+                        <small>Minimum 4 caractères</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPasswordConfirm">Confirmer mot de passe:</label>
+                        <input type="password" id="registerPasswordConfirm" minlength="4" required>
+                    </div>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <span>J'accepte les <a href="#" onclick="return false;">conditions d'utilisation</a></span>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary btn-full">S'inscrire</button>
+                    
+                    <p class="auth-hint">Déjà inscrit? <a href="#login" class="tab-auth-btn" data-tab="login">Se connecter</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de confirmation suppression compte -->
+    <div id="deleteConfirmModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <h3>⚠️ Supprimer définitivement votre compte</h3>
+            <p>Cette action est irréversible. Toutes vos données seront supprimées.</p>
+            <p>Entrez votre email pour confirmer:</p>
+            <input type="email" id="deleteConfirmEmail" placeholder="Votre email">
+            <div class="modal-buttons">
+                <button id="confirmDelete" class="btn btn-danger">Supprimer définitivement</button>
+                <button id="cancelDelete" class="btn btn-secondary">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer injecté par common.js -->
+    <div id="app-footer"></div>
+
+    <!-- Scripts -->
+    <script src="../src/js/common.js"></script>
+    <script src="../src/js/cart.js"></script>
+    <script src="../src/js/users.js"></script>
+    <script src="../src/js/theme.js"></script>
+    <script src="../src/js/ratings.js"></script>
+    <script src="./account.js"></script>
+</body>
+</html>
