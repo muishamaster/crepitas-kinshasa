@@ -6,9 +6,39 @@
  * ===================================================================
  */
 
+// ======================== HAMBURGER MENU ========================
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Ferme le menu quand un lien est cliqué
+        const navAnchors = navLinks.querySelectorAll('a');
+        navAnchors.forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Ferme le menu quand on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+});
+
 // ======================== CONFIGURATION ========================
 const CONFIG = {
-    DELIVERY_FEE: 1000, // FC
+    DELIVERY_FEE: 0, // FC
     SITE_URL: window.location.href.split('?')[0],
     WHATSAPP_NUMBER: '243977970594', // Format international sans +
     PAYMENT_PROVIDERS: {
@@ -36,7 +66,7 @@ const CONFIG = {
                 desc: 'Simplement saupoudrée de sucre de canne et un trait de citron.',
                 price: 5000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/crepe1.jpg'
             },
             {
                 id: 2,
@@ -44,7 +74,7 @@ const CONFIG = {
                 desc: 'L\'alliance parfaite du beurre demi-sel et du citron vert.',
                 price: 6000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1577540643203-07e73e45b6a7?w=300&h=250&fit=crop'
+                img: './img/crepe2.jpg'
             },
             {
                 id: 3,
@@ -52,7 +82,7 @@ const CONFIG = {
                 desc: 'Généreuse couche de Nutella fondant.',
                 price: 10000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=250&fit=crop'
+                img: './img/crepe3.jpg'
             },
             {
                 id: 4,
@@ -60,7 +90,7 @@ const CONFIG = {
                 desc: 'Nutella et rondelles de bananes fraîches.',
                 price: 12000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=300&h=250&fit=crop'
+                img: './img/crepe4.jpg'
             },
             {
                 id: 5,
@@ -68,7 +98,7 @@ const CONFIG = {
                 desc: 'Notre caramel maison à la fleur de sel.',
                 price: 12000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1626082927389-6cd097cfd330?w=300&h=250&fit=crop'
+                img: './img/crepe5.jpg'
             },
             {
                 id: 6,
@@ -76,7 +106,7 @@ const CONFIG = {
                 desc: 'Pâte de Spéculoos croquante et brisures de biscuits.',
                 price: 13000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1599599810694-b3fa981175d7?w=300&h=250&fit=crop'
+                img: './img/crepe6.jpg'
             },
             {
                 id: 7,
@@ -84,7 +114,7 @@ const CONFIG = {
                 desc: 'Miel pur d\'acacia et amandes effilées grillées.',
                 price: 11000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1558636508-e0db3814a69e?w=300&h=250&fit=crop'
+                img: './img/crepe7.jpg'
             },
             {
                 id: 8,
@@ -92,7 +122,7 @@ const CONFIG = {
                 desc: 'Chocolat noir fondu et noix de coco râpée.',
                 price: 12000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/crepe8.jpg'
             },
             {
                 id: 9,
@@ -100,7 +130,7 @@ const CONFIG = {
                 desc: 'Pommes caramélisées au four et une touche de cannelle.',
                 price: 14000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1568050109203-d6b2b1e00c36?w=300&h=250&fit=crop'
+                img: './img/crepe9.jpg'
             },
             {
                 id: 10,
@@ -108,16 +138,16 @@ const CONFIG = {
                 desc: 'Coulis de fruits rouges et morceaux de fraises fraîches.',
                 price: 15000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1553530666-ba953a5c547f?w=300&h=250&fit=crop'
+                img: './img/crepe10.jpg'
             },
             {
-                id: 11,
-                name: 'L\'Antillaise Flambée',
-                desc: 'Banane, sucre roux et flambée au Rhum devant vous.',
-                price: 18000,
+                id: 10,
+                name: 'La Tout-Fruit',
+                desc: 'Coulis de fruits rouges et morceaux de fraises fraîches.',
+                price: 15000,
                 category: 'crepes-sucrees',
-                img: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=250&fit=crop'
-            }
+                img: './img/crepe10.jpg'
+            },
         ],
         'galettes-salees': [
             {
@@ -126,7 +156,7 @@ const CONFIG = {
                 desc: 'Jambon, œuf miroir et emmental râpé.',
                 price: 15000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=300&h=250&fit=crop'
+                img: './img/gal1.jpg'
             },
             {
                 id: 13,
@@ -134,7 +164,7 @@ const CONFIG = {
                 desc: 'Mélange de 3 fromages (Emmental, Chèvre, Mozzarella).',
                 price: 18000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1568050109203-d6b2b1e00c36?w=300&h=250&fit=crop'
+                img: './img/gal3.jpg'
             },
             {
                 id: 14,
@@ -142,7 +172,7 @@ const CONFIG = {
                 desc: 'Émincé de poulet, crème fraîche et champignons.',
                 price: 19000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=300&h=250&fit=crop'
+                img: './img/gal4.jpg'
             },
             {
                 id: 15,
@@ -150,7 +180,7 @@ const CONFIG = {
                 desc: 'Viande hachée pur bœuf, sauce tomate maison et origan.',
                 price: 18000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1626082927389-6cd097cfd330?w=300&h=250&fit=crop'
+                img: './img/gal5.jpg'
             },
             {
                 id: 16,
@@ -158,7 +188,7 @@ const CONFIG = {
                 desc: 'Épinards à la crème, œuf et parmesan.',
                 price: 17000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=300&h=250&fit=crop'
+                img: './img/gal6.jpg'
             },
             {
                 id: 17,
@@ -166,7 +196,7 @@ const CONFIG = {
                 desc: 'Miettes de thon, mayonnaise maison, maïs et olives.',
                 price: 16000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1614707267537-b85faf00021f?w=300&h=250&fit=crop'
+                img: './img/gal7.jpg'
             },
             {
                 id: 18,
@@ -174,7 +204,7 @@ const CONFIG = {
                 desc: 'Fromage de chèvre chaud, miel, noix et salade.',
                 price: 19000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1605350562467-06f2fe6fbf45?w=300&h=250&fit=crop'
+                img: './img/gal8.jpg'
             },
             {
                 id: 19,
@@ -182,7 +212,7 @@ const CONFIG = {
                 desc: 'Tomates, poivrons grillés, oignons et champignons.',
                 price: 16000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=250&fit=crop'
+                img: './img/gal9.jpg'
             },
             {
                 id: 20,
@@ -190,7 +220,7 @@ const CONFIG = {
                 desc: 'Pommes de terre, lardons fumés, oignons et reblochon.',
                 price: 22000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1589974175275-79d6a0a7ee6b?w=300&h=250&fit=crop'
+                img: './img/gal10.jpg'
             },
             {
                 id: 21,
@@ -198,7 +228,7 @@ const CONFIG = {
                 desc: 'Poulet mariné au curry, crème coco et ananas rôti.',
                 price: 20000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=300&h=250&fit=crop'
+                img: './img/gal1.jpg'
             },
             {
                 id: 22,
@@ -206,7 +236,7 @@ const CONFIG = {
                 desc: 'Saumon fumé, crème ciboulette et zeste de citron.',
                 price: 24000,
                 category: 'galettes-salees',
-                img: 'https://images.unsplash.com/photo-1615788213519-d2199a3e6eab?w=300&h=250&fit=crop'
+                img: './img/gal3.jpg'
             }
         ],
         'signatures': [
@@ -216,7 +246,7 @@ const CONFIG = {
                 desc: 'La légende de Kinshasa revisitée en crêpe : poulet grillé, mayo secrète, oignons croquants.',
                 price: 22000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=300&h=250&fit=crop'
+                img: './img/crepe23.jpg'
             },
             {
                 id: 24,
@@ -224,7 +254,7 @@ const CONFIG = {
                 desc: 'Viande hachée épicée, dés de bananes plantains frites (makemba) et sauce piri-piri douce.',
                 price: 25000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1626082927389-6cd097cfd330?w=300&h=250&fit=crop'
+                img: './img/crepe24.jpg'
             },
             {
                 id: 25,
@@ -232,7 +262,7 @@ const CONFIG = {
                 desc: 'Fines tranches de chèvre fumé, oignons confits et tomates fraîches.',
                 price: 26000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=300&h=250&fit=crop'
+                img: './img/crepe25.jpg'
             },
             {
                 id: 26,
@@ -240,7 +270,7 @@ const CONFIG = {
                 desc: 'Poisson frais grillé émietté, chikwangue rôtie en dés et sauce verte.',
                 price: 24000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1614707267537-b85faf00021f?w=300&h=250&fit=crop'
+                img: './img/crepe26.jpg'
             },
             {
                 id: 27,
@@ -248,7 +278,7 @@ const CONFIG = {
                 desc: 'Pliée comme un burger : Steak haché, cheddar, salade, tomate, sauce burger.',
                 price: 23000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1568050109203-d6b2b1e00c36?w=300&h=250&fit=crop'
+                img: './img/crepe27.jpg'
             },
             {
                 id: 28,
@@ -256,7 +286,7 @@ const CONFIG = {
                 desc: 'Crêpe épaisse servie avec des mini-beignets, chocolat et cacahuètes.',
                 price: 20000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/crepe28.jpg'
             },
             {
                 id: 29,
@@ -264,7 +294,7 @@ const CONFIG = {
                 desc: 'Mangue fraîche de saison, coulis de fruit de la passion et boule de glace vanille.',
                 price: 22000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1553530666-ba953a5c547f?w=300&h=250&fit=crop'
+                img: './img/crepe29.jpg'
             },
             {
                 id: 30,
@@ -272,7 +302,7 @@ const CONFIG = {
                 desc: 'Avocat frais, crevettes roses, sauce cocktail et pamplemousse.',
                 price: 21000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=250&fit=crop'
+                img: './img/crepe30.jpg'
             },
             {
                 id: 31,
@@ -280,7 +310,7 @@ const CONFIG = {
                 desc: 'Haricots rouges cuisinés (Madesu), riz parfumé et sauce tomate épicée.',
                 price: 18000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1626082927389-6cd097cfd330?w=300&h=250&fit=crop'
+                img: './img/crepe31.jpg'
             },
             {
                 id: 32,
@@ -288,7 +318,7 @@ const CONFIG = {
                 desc: 'Bacon, saucisses, œuf brouillé et sirop d\'érable sur crêpe épaisse.',
                 price: 25000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=300&h=250&fit=crop'
+                img: './img/crepe32.jpg'
             },
             {
                 id: 33,
@@ -296,7 +326,7 @@ const CONFIG = {
                 desc: 'La plus garnie : Poulet, Viande hachée, Fromage, Champignons et sauce algérienne.',
                 price: 28000,
                 category: 'signatures',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/crepe33.jpg'
             }
         ],
         boissons: [
@@ -306,7 +336,7 @@ const CONFIG = {
                 desc: 'Crémeux et gourmand à la vanille de Madagascar.',
                 price: 10000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/mil1.jpg'
             },
             {
                 id: 35,
@@ -314,7 +344,7 @@ const CONFIG = {
                 desc: 'Double dose de chocolat pour les accros.',
                 price: 10000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/mil2.jpg'
             },
             {
                 id: 36,
@@ -322,7 +352,7 @@ const CONFIG = {
                 desc: 'Fraise fraîche et douceur des Tagada.',
                 price: 11000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1553530666-ba953a5c547f?w=300&h=250&fit=crop'
+                img: './img/mil3.jpg'
             },
             {
                 id: 37,
@@ -330,7 +360,7 @@ const CONFIG = {
                 desc: 'Crème de fromage et biscuits Oreo concassés.',
                 price: 12000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1605350562467-06f2fe6fbf45?w=300&h=250&fit=crop'
+                img: './img/mil4.jpg'
             },
             {
                 id: 38,
@@ -338,7 +368,7 @@ const CONFIG = {
                 desc: 'Chocolat blanc et noisettes comme l\'original.',
                 price: 13000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=250&fit=crop'
+                img: './img/mil5.jpg'
             },
             {
                 id: 39,
@@ -346,7 +376,7 @@ const CONFIG = {
                 desc: 'Frais et tonique, préparé chaque jour.',
                 price: 5000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1553530666-ba953a5c547f?w=300&h=250&fit=crop'
+                img: './img/mil6.jpg'
             },
             {
                 id: 40,
@@ -354,7 +384,7 @@ const CONFIG = {
                 desc: 'Puissant et naturel, énergisant.',
                 price: 5000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1590890391511-23f1c064f09f?w=300&h=250&fit=crop'
+                img: './img/mil7.jpg'
             },
             {
                 id: 41,
@@ -362,7 +392,7 @@ const CONFIG = {
                 desc: 'Exotique et acidulé à la perfection.',
                 price: 6000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1600271886742-f049cd1f04b5?w=300&h=250&fit=crop'
+                img: './img/mil8.jpg'
             },
             {
                 id: 42,
@@ -370,7 +400,7 @@ const CONFIG = {
                 desc: 'Riche et intense, tiré avec passion.',
                 price: 4000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=300&h=250&fit=crop'
+                img: './img/mil9.jpg'
             },
             {
                 id: 43,
@@ -378,7 +408,7 @@ const CONFIG = {
                 desc: 'Apaisant et réconfortant avec miel naturel.',
                 price: 5000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1597318972326-4cc50267cba1?w=300&h=250&fit=crop'
+                img: './img/mil10.jpg'
             },
             {
                 id: 44,
@@ -386,7 +416,7 @@ const CONFIG = {
                 desc: 'Classiques et incontournables, bien fraîches.',
                 price: 3000,
                 category: 'boissons',
-                img: 'https://images.unsplash.com/photo-1550788691-eb646b3c7be5?w=300&h=250&fit=crop'
+                img: './img/mil1.jpg'
             }
         ]
     }
@@ -698,8 +728,8 @@ const cartManager = (() => {
         const subtotal = calculateSubtotal();
         const total = calculateTotal();
         
-        let message = '🍽️ *Nouvelle Commande BENI BK*\n\n';
-        message += '📋 *Détail de la commande:*\n';
+        let message = '*Nouvelle Commande CREPITAS KINSHASA*\n\n';
+        message += '*Détail de la commande:*\n';
         message += '━━━━━━━━━━━━━━━━━━━━━\n';
 
         cart.forEach((item, index) => {
@@ -709,10 +739,10 @@ const cartManager = (() => {
         });
 
         message += '━━━━━━━━━━━━━━━━━━━━━\n';
-        message += `📦 *Sous-total:* ${subtotal.toLocaleString('fr-FR')} FC\n`;
-        message += `🚚 *Frais livraison:* ${CONFIG.DELIVERY_FEE.toLocaleString('fr-FR')} FC\n`;
-        message += `💰 *Total:* ${total.toLocaleString('fr-FR')} FC\n\n`;
-        message += '✅ Je souhaite passer cette commande par Mobile Money (M-Pesa/Airtel/Orange)';
+        message += ` *Sous-total:* ${subtotal.toLocaleString('fr-FR')} FC\n`;
+        // message += ` *Frais livraison:* ${CONFIG.DELIVERY_FEE.toLocaleString('fr-FR')} FC\n`;
+        message += ` *Total:* ${total.toLocaleString('fr-FR')} FC\n\n`;
+        // message += '✅ Je souhaite passer cette commande par Mobile Money (M-Pesa/Airtel/Orange)';
 
         const whatsappUrl = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
         
@@ -793,9 +823,23 @@ const productManager = (() => {
             return;
         }
 
-        container.innerHTML = products.map(product => `
+        container.innerHTML = products.map(product => {
+            // Determine image source. For boissons (including milkshakes) use the mil1..mil10 series.
+            let imgSrc = typeof product.img === 'string' ? product.img : `./img/crepe${product.id}.jpg`;
+
+            if (category === 'boissons') {
+                // Map product IDs in boissons to mil1..mil10 (cycle if more items)
+                const baseId = 34; // first boissons ID in CONFIG
+                const idx = ((product.id - baseId) % 10) + 1; // 1..10
+                imgSrc = `./img/mil${idx}.jpg`;
+            }
+
+            // Force extension to .jpg for any remaining cases
+            imgSrc = imgSrc.replace(/\.(png|jpeg|webp|svg|gif)$/i, '.jpg');
+
+            return `
             <div class="product-card">
-                <img src="${product.img}" alt="${escapeHtml(product.name)}" onerror="this.src='https://via.placeholder.com/300x250?text=Image+non+disponible'">
+                <img src="${imgSrc}" alt="${escapeHtml(product.name)}" onerror="this.onerror=null;this.src='./img/placeholder.jpg'">
                 <div class="product-info">
                     <h3>${escapeHtml(product.name)}</h3>
                     <p>${escapeHtml(product.desc)}</p>
@@ -807,7 +851,8 @@ const productManager = (() => {
                     </div>
                 </div>
             </div>
-        `).join('');
+        `;
+        }).join('');
     };
 
     return { loadProducts };

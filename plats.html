@@ -6,7 +6,7 @@
         <title>Galettes Salées - CREPITAS KINSHASA</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="texture-overlay"></div>
@@ -14,15 +14,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                    <h2>CREPITAS KINSHASA</h2>
-                    <p>L'Art de la Crêpe</p>
+                <h2>CREPITAS</h2>
+                <p>KINSHASA</p>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="menu-du-jour.html" class="badge-new">Menu du Jour</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./menu.html" class="active">Menu</a></li>
+                <li><a href="./menu-du-jour.html" class="badge-new">Menu du Jour</a></li>
+                <li><a href="./apropos.html" class="badge-new">À Propos</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
             <div class="nav-cart">
                 <a href="#cart" class="cart-icon" id="cartIcon">
@@ -83,18 +84,18 @@
                 </div>
                 <div class="summary-line">
                     <span>Frais de livraison</span>
-                    <span id="delivery-fee">1.000 FC</span>
+                    <!-- <span id="delivery-fee">1.000 FC</span> -->
                 </div>
                 <div class="summary-line total">
                     <span>Total</span>
-                    <span id="total-price">1.000 FC</span>
+                    <!-- <span id="total-price">1.000 FC</span> -->
                 </div>
             </div>
 
             <div class="cart-actions">
-                <button class="btn-pay" id="paymentBtn" onclick="cartManager.openPaymentModal()">PASSER LA COMMANDE</button>
+                <!-- <button class="btn-pay" id="paymentBtn" onclick="cartManager.openPaymentModal()">PASSER LA COMMANDE</button> -->
                 <button class="btn-whatsapp" onclick="cartManager.sendToWhatsApp()">
-                    <span>📱 Via WhatsApp</span>
+                    <span>PASSER LA COMMANDE</span>
                 </button>
             </div>
 
@@ -145,7 +146,7 @@
         </svg>
     </a>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
                 cartManager.init();

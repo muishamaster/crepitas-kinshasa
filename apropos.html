@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Crepitas Kinshasa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Small hero tweak for about page */
+        .about-hero { padding: 4rem 1rem; text-align: center; }
+        .values-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .value-card { background: var(--bg-card); padding: 1rem; border-radius: 12px; display:flex; gap:12px; align-items:center; border:1px solid var(--border-color); }
+        .value-card img { width:48px; height:48px; }
+        .team-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+        .team-card { background:var(--bg-card); padding:12px; border-radius:12px; display:flex; gap:12px; align-items:center; border:1px solid var(--border-color); }
+        .team-card img { width:72px; height:72px; border-radius:8px; object-fit:cover; }
+
+        @media(min-width:769px){
+            .values-grid { grid-template-columns: repeat(3,1fr); }
+            .team-grid { grid-template-columns: repeat(3,1fr); }
+            .about-hero { padding:6rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="texture-overlay"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>CREPITAS</h2>
+                <p>KINSHASA</p>
+            </div>
+            <!-- <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> -->
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./menu.html">Menu</a></li>
+                <!-- <li><a href="./menu-du-jour.html" class="badge-new">Menu du Jour</a></li> -->
+                <li><a href="./apropos.html" class="badge-new active">À Propos</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Basculer le thème" title="Thème sombre/clair"></button>
+                <div class="nav-cart">
+                    <a href="./panier.html" class="cart-icon" id="cartIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+   <section class="about">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>À Propos de Nous</h2>
+            <p>
+CRÉPITAS est un restaurant moderne et raffiné, pensé comme un véritable lieu de vie au cœur de Kinshasa. Nous avons imaginé un espace chaleureux, contemporain et inspirant, où l’on vient aussi bien pour savourer de bons plats que pour échanger, travailler ou se détendre entre amis.
+Notre concept repose sur une offre gourmande, accessible et de qualité, mêlant le sucré et le salé, accompagnés d’une sélection de boissons soigneusement choisies. Chaque produit est préparé avec attention, dans le respect du goût, de la fraîcheur et de l’esthétique, afin d’offrir une expérience à la fois authentique et moderne.
+CRÉPITAS s’adresse principalement à une clientèle jeune, active et créative, en quête d’un lieu convivial où le confort, le design et la qualité se rencontrent. Plus qu’un restaurant, CRÉPITAS se veut un véritable point de rencontre, un espace de partage et d’inspiration, pleinement ancré dans le dynamisme et l’évolution de la scène urbaine kinoise.</p>
+        </div>
+        <div class="about-image">
+            <img src="./img/baniere.jpeg" alt="Crepitas Kinshasa">
+        </div>
+    </div>
+</section>
+
+        </section>
+    </main>
+
+    <!-- floating whatsapp -->
+
+    <!-- <a href="#" class="whatsapp-float" id="whatsappFloat" title="Contactez-nous sur WhatsApp">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.364-3.905 6.75-1.897 10.391 1.672 2.904 5.291 3.118 8.632 3.118h.46a9.75 9.75 0 003.464-.6l3.585 1.241a.18.18 0 00.248-.204l-1.081-3.93a9.8 9.8 0 001.175-5.621c-.001-5.487-4.144-9.95-9.451-9.95"></path>
+        </svg>
+    </a> -->
+
+    <a 
+    href="https://wa.me/33612345678" 
+    class="whatsapp-float" 
+    id="whatsappFloat" 
+    title="Contactez-nous sur WhatsApp"
+    aria-label="Contactez-nous sur WhatsApp"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.364-3.905 6.75-1.897 10.391 1.672 2.904 5.291 3.118 8.632 3.118h.46a9.75 9.75 0 003.464-.6l3.585 1.241a.18.18 0 00.248-.204l-1.081-3.93a9.8 9.8 0 001.175-5.621c-.001-5.487-4.144-9.95-9.451-9.95"></path>
+    </svg>
+</a>
+
+
+    <!-- footer part -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CREPITAS KINSHASA</h3>
+                <p>L'Art de la Crêpe</p>
+                <p>Crêpes artisanales, gourmandise et élégance</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Dimanche<br>11h00 - 23h00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📱 +243 977 970 594<br>📧 contact@crepitas.cd</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CREPITAS KINSHASA. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("themeToggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+});
+
+    </script>
+
+    <script src="./src/js/theme-manager.js"></script>
+    <script src="./script.js"></script>
+    <script src="./src/js/cart-manager.js"></script>
+</body>
+</html>

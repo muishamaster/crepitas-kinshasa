@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Intégration QR Code Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <!-- Texture de fond premium -->
@@ -17,25 +17,36 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h2>CREPITAS KINSHASA</h2>
-                <p>L'Art de la Crêpe</p>
+                <h2>CREPITAS</h2>
+                <p>KINSHASA</p>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="menu-du-jour.html" class="badge-new">Menu du Jour</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html" class="active">Accueil</a></li>
+                <li><a href="./menu.html">Menu</a></li>
+                <!-- <li><a href="./menu-du-jour.html" class="badge-new">Menu du Jour</a></li> -->
+                <li><a href="./apropos.html" class="badge-new">À Propos</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
-            <div class="nav-cart">
-                <a href="#cart" class="cart-icon" id="cartIcon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                </a>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Basculer le thème" title="Thème sombre/clair">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m2.98 2.98l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m2.98-2.98l4.24-4.24"/></svg>
+                </button>
+                <div class="nav-cart">
+                    <a href="./panier.html" class="cart-icon" id="cartIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -50,15 +61,15 @@
             </h1>
             <p class="hero-description">Crêpes artisanales, ingrédients premium, expérience gourmande inoubliable.</p>
             <div class="hero-btns">
-                <button class="btn-cta btn-cta-primary" data-target="menu.html">JE FONDS DE PLAISIR</button>
-                <button class="btn-cta btn-cta-secondary" data-target="#menu">COMMANDER MA CRÊPE</button>
+                <button class="btn-cta btn-cta-primary" data-target="menu.html">COMMANDER MA CRÊPE</button>
+                <!-- <button class="btn-cta btn-cta-secondary" data-target="#menu">COMMANDER MA CRÊPE</button> -->
             </div>
         </div>
     </header>
 
     <!-- Barre de paiement sécurisé -->
     <div class="payment-bar">
-        <div class="payment-content">
+        <!-- <div class="payment-content">
             <span class="payment-label">PAIEMENTS SÉCURISÉS</span>
             <div class="payment-methods">
                 <div class="payment-method">
@@ -66,88 +77,46 @@
                     <span>M-Pesa</span>
                 </div>
                 <div class="payment-method">
-                    <div class="payment-icon airtel"></div>
-                    <span>Airtel Money</span>
-                </div>
+                    <div class="payment-icon airtel"></div> -->
+                    <!-- <span>Airtel Money</span> -->
+                <!-- </div>
                 <div class="payment-method">
-                    <div class="payment-icon orange"></div>
-                    <span>Orange Money</span>
+                    <div class="payment-icon orange"></div> -->
+                    <!-- <span>Orange Money</span> -->
+                <!-- </div>
+            </div>
+        </div> --> 
+
+        <div class="payment-content">
+        <span class="payment-label">PAIEMENTS SÉCURISÉS</span>
+        <div class="payment-methods">
+
+            <div class="payment-method">
+                <div class="payment-icon">
+                    <img src="data:image/webp;base64,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" alt="M-Pesa">
                 </div>
             </div>
+
+            <div class="payment-method">
+                <div class="payment-icon">
+                    <img src="https://monisnapcontent.kinsta.cloud/wp-content/uploads/2021/05/orange-money-guinee.jpg?v=1620223251" alt="Orange Money">
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="payment-icon">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.TasjekH2yyJ8Ojb8P2wzKgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Airtel Money">
+                </div>
+            </div>
+
         </div>
     </div>
+    </div>
 
-    <main class="main-container">
-        <!-- Section Menu -->
-        <section id="menu" class="menu-section">
-            <div class="menu-header">
-                <h2>Notre Menu</h2>
-                <p>Sélectionnez vos mets favoris</p>
-            </div>
-
-            <!-- Système d'onglets de catégories -->
-            <div class="category-tabs">
-                <a href="entrees.html" class="category-btn" data-category="crepes-sucrees">
-                    <span class="icon">🍓</span> Crêpes Sucrées
-                </a>
-                <a href="plats.html" class="category-btn" data-category="galettes-salees">
-                    <span class="icon">�</span> Galettes Salées
-                </a>
-                <a href="desserts.html" class="category-btn" data-category="signatures">
-                    <span class="icon">✨</span> Signatures Crepitas
-                </a>
-                <a href="boissons.html" class="category-btn" data-category="boissons">
-                    <span class="icon">🥤</span> Milkshakes & Boissons
-                </a>
-            </div>
-
-            <!-- Affichage des produits -->
-            <div class="product-list" id="productList">
-                <!-- Produits chargés dynamiquement -->
-            </div>
-        </section>
+    
 
         <!-- Sidebar Panier -->
-        <aside class="cart-sidebar" id="cartSidebar">
-            <div class="cart-header">
-                <h3>Votre Commande</h3>
-                <button class="btn-clear-cart" id="clearCartBtn" title="Vider le panier">✕</button>
-            </div>
-            
-            <div class="cart-items-container">
-                <div id="cart-items" class="cart-items">
-                    <p class="empty-cart">Votre panier est vide</p>
-                </div>
-            </div>
-
-            <hr class="divider">
-
-            <!-- Résumé des totaux -->
-            <div class="cart-summary">
-                <div class="summary-line">
-                    <span>Sous-total</span>
-                    <span id="subtotal">0 FC</span>
-                </div>
-                <div class="summary-line">
-                    <span>Frais de livraison</span>
-                    <span id="delivery-fee">1.000 FC</span>
-                </div>
-                <div class="summary-line total">
-                    <span>Total</span>
-                    <span id="total-price">1.000 FC</span>
-                </div>
-            </div>
-
-            <!-- Boutons d'action -->
-            <div class="cart-actions">
-                <button class="btn-pay" id="paymentBtn" onclick="cartManager.openPaymentModal()">PASSER LA COMMANDE</button>
-                <button class="btn-whatsapp" onclick="cartManager.sendToWhatsApp()">
-                    <span>📱 Via WhatsApp</span>
-                </button>
-            </div>
-
-            <p class="footer-note">Paiement sécurisé via Mobile Money</p>
-
+        
             <!-- Section QR Code -->
             <div class="qr-code-section">
                 <button class="btn-qr-toggle" onclick="toggleQRCode()">
@@ -196,7 +165,31 @@
         </svg>
     </a>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CREPITAS KINSHASA</h3>
+                <p>L'Art de la Crêpe</p>
+                <p>Crêpes artisanales, gourmandise et élégance</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Dimanche<br>11h00 - 23h00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📱 +243 977 970 594<br>📧 contact@crepitas.cd</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CREPITAS KINSHASA. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+
     <!-- Script principal -->
-    <script src="script.js"></script>
+    <script src="./src/js/theme-manager.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

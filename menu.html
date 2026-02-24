@@ -6,7 +6,7 @@
     <title>Menu Complet - CREPITAS KINSHASA</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="texture-overlay"></div>
@@ -15,18 +15,39 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h2>CREPITAS KINSHASA</h2>
-                <p>L'Art de la Crêpe</p>
+                <h2>CREPITAS</h2>
+                <p>KINSHASA</p>
+            </div>
+             <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="menu.html" class="active">Menu</a></li>
-                <li><a href="menu-du-jour.html" class="badge-new">Menu du Jour</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./menu.html" class="active">Menu</a></li>
+                <!-- <li><a href="./menu-du-jour.html" class="badge-new">Menu du Jour</a></li> -->
+                <li><a href="./apropos.html" class="badge-new">À Propos</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
-            <div class="nav-cart">
-                <a href="#cart" class="cart-icon" id="cartIcon">
+             <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Basculer le thème" title="Thème sombre/clair">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m2.98 2.98l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m2.98-2.98l4.24-4.24"/></svg>
+                </button>
+                <div class="nav-cart">
+                    <a href="./panier.html" class="cart-icon" id="cartIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="nav-cart">
+                <a href="./panier.html" class="cart-icon" id="cartIcon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
@@ -34,7 +55,7 @@
                     </svg>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
-            </div>
+            </div> -->
         </div>
     </nav>
 
@@ -69,54 +90,54 @@
         </section>
 
         <!-- Sidebar Panier -->
-        <aside class="cart-sidebar" id="cartSidebar">
-            <div class="cart-header">
+        <!-- <aside class="cart-sidebar" id="cartSidebar"> -->
+            <!-- <div class="cart-header">
                 <h3>Votre Commande</h3>
                 <button class="btn-clear-cart" id="clearCartBtn" title="Vider le panier">✕</button>
-            </div>
+            </div> -->
             
-            <div class="cart-items-container">
+            <!-- <div class="cart-items-container">
                 <div id="cart-items" class="cart-items">
                     <p class="empty-cart">Votre panier est vide</p>
                 </div>
-            </div>
+            </div> -->
 
-            <hr class="divider">
+            <!-- <hr class="divider"> -->
 
             <!-- Résumé des totaux -->
-            <div class="cart-summary">
+            <!-- <div class="cart-summary">
                 <div class="summary-line">
                     <span>Sous-total</span>
                     <span id="subtotal">0 FC</span>
                 </div>
-                <div class="summary-line">
-                    <span>Frais de livraison</span>
-                    <span id="delivery-fee">1.000 FC</span>
-                </div>
+                <div class="summary-line"> -->
+                    <!-- <span>Frais de livraison</span> -->
+                    <!-- <span id="delivery-fee">1.000 FC</span> -->
+                <!-- </div>
                 <div class="summary-line total">
                     <span>Total</span>
-                    <span id="total-price">1.000 FC</span>
+                    <span id="total-price">0 FC</span>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Boutons d'action -->
-            <div class="cart-actions">
+            <!-- <div class="cart-actions">
                 <button class="btn-pay" id="paymentBtn" onclick="cartManager.openPaymentModal()">PASSER LA COMMANDE</button>
                 <button class="btn-whatsapp" onclick="cartManager.sendToWhatsApp()">
                     <span>📱 Via WhatsApp</span>
                 </button>
             </div>
 
-            <p class="footer-note">Paiement sécurisé via Mobile Money</p>
+            <p class="footer-note">Paiement sécurisé via Mobile Money</p> -->
 
             <!-- Section QR Code -->
-            <div class="qr-code-section">
+            <!-- <div class="qr-code-section">
                 <button class="btn-qr-toggle" onclick="toggleQRCode()">
                     📱 Afficher QR Code Menu
                 </button>
                 <div id="qrCodeContainer" class="qr-code-container hidden"></div>
             </div>
-        </aside>
+        </aside> -->
     </main>
 
     <!-- Modal de Paiement Mobile Money -->
@@ -148,7 +169,7 @@
                 <p class="info-text">Vous serez redirigé vers votre application de paiement mobile.</p>
                 <p class="info-text">OU</p>
                 <button class="btn-whatsapp" onclick="cartManager.sendToWhatsApp()" style="width: 100%; margin-top: 1rem;">
-                    📲 Commander via WhatsApp
+                    PASSER LA COMMANDE
                 </button>
             </div>
         </div>
@@ -161,7 +182,32 @@
         </svg>
     </a>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CREPITAS KINSHASA</h3>
+                <p>L'Art de la Crêpe</p>
+                <p>Crêpes artisanales, gourmandise et élégance</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Dimanche<br>11h00 - 23h00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📱 +243 977 970 594<br>📧 contact@crepitas.cd</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CREPITAS KINSHASA. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./src/js/theme-manager.js"></script>
+    <script src="./script.js"></script>
+    <script src="./src/js/cart-manager.js"></script>
     <script>
         // Fonction utilitaire pour mettre à jour la catégorie active
         function updateCategoryActive(element) {
