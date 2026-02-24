@@ -1,3 +1,5 @@
+/* Version Finale 2.0 - Mise à jour Render */
+
 /* ======================== VARIABLES GLOBALES ======================== */
 :root {
     /* Couleurs permanentes */
@@ -602,7 +604,8 @@ body::before {
     }
 
     .nav-links.active {
-        display: flex;
+        display: flex !important;
+        visibility: visible;
     }
 
     .nav-links li {
@@ -3242,7 +3245,7 @@ textarea{
 }
 
 /* style pour mobile uniquement */
-@media  screnn and(max-width:768px) {
+@media screen and (max-width: 768px) {
     .nav-links {
         display: none;  /*cache le menu par defaut*/
         flex-direction: column;
@@ -3259,7 +3262,8 @@ textarea{
         
         /* cette classe sera ajoutee par le javascript au clic */
         .nav-links.active{
-            display: flex;
+            display: flex !important;
+            visibility: visible;
         }
 
         .nav-links li {
