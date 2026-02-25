@@ -246,7 +246,7 @@ const CONFIG = {
                 desc: 'La légende de Kinshasa revisitée en crêpe : poulet grillé, mayo secrète, oignons croquants.',
                 price: 22000,
                 category: 'signatures',
-                img: './img/crepe23.jpg'
+                img: './img/crepe1.jpg'
             },
             {
                 id: 24,
@@ -254,7 +254,7 @@ const CONFIG = {
                 desc: 'Viande hachée épicée, dés de bananes plantains frites (makemba) et sauce piri-piri douce.',
                 price: 25000,
                 category: 'signatures',
-                img: './img/crepe24.jpg'
+                img: './img/crepe2.jpg'
             },
             {
                 id: 25,
@@ -262,7 +262,7 @@ const CONFIG = {
                 desc: 'Fines tranches de chèvre fumé, oignons confits et tomates fraîches.',
                 price: 26000,
                 category: 'signatures',
-                img: './img/crepe25.jpg'
+                img: './img/crepe3.jpg'
             },
             {
                 id: 26,
@@ -270,7 +270,7 @@ const CONFIG = {
                 desc: 'Poisson frais grillé émietté, chikwangue rôtie en dés et sauce verte.',
                 price: 24000,
                 category: 'signatures',
-                img: './img/crepe26.jpg'
+                img: './img/crepe4.jpg'
             },
             {
                 id: 27,
@@ -278,7 +278,7 @@ const CONFIG = {
                 desc: 'Pliée comme un burger : Steak haché, cheddar, salade, tomate, sauce burger.',
                 price: 23000,
                 category: 'signatures',
-                img: './img/crepe27.jpg'
+                img: './img/crepe5.jpg'
             },
             {
                 id: 28,
@@ -286,7 +286,7 @@ const CONFIG = {
                 desc: 'Crêpe épaisse servie avec des mini-beignets, chocolat et cacahuètes.',
                 price: 20000,
                 category: 'signatures',
-                img: './img/crepe28.jpg'
+                img: './img/crepe6.jpg'
             },
             {
                 id: 29,
@@ -294,7 +294,7 @@ const CONFIG = {
                 desc: 'Mangue fraîche de saison, coulis de fruit de la passion et boule de glace vanille.',
                 price: 22000,
                 category: 'signatures',
-                img: './img/crepe29.jpg'
+                img: './img/crepe7.jpg'
             },
             {
                 id: 30,
@@ -302,7 +302,7 @@ const CONFIG = {
                 desc: 'Avocat frais, crevettes roses, sauce cocktail et pamplemousse.',
                 price: 21000,
                 category: 'signatures',
-                img: './img/crepe30.jpg'
+                img: './img/crepe8.jpg'
             },
             {
                 id: 31,
@@ -310,7 +310,7 @@ const CONFIG = {
                 desc: 'Haricots rouges cuisinés (Madesu), riz parfumé et sauce tomate épicée.',
                 price: 18000,
                 category: 'signatures',
-                img: './img/crepe31.jpg'
+                img: './img/crepe7.jpg'
             },
             {
                 id: 32,
@@ -318,7 +318,7 @@ const CONFIG = {
                 desc: 'Bacon, saucisses, œuf brouillé et sirop d\'érable sur crêpe épaisse.',
                 price: 25000,
                 category: 'signatures',
-                img: './img/crepe32.jpg'
+                img: './img/crepe1.jpg'
             },
             {
                 id: 33,
@@ -326,7 +326,7 @@ const CONFIG = {
                 desc: 'La plus garnie : Poulet, Viande hachée, Fromage, Champignons et sauce algérienne.',
                 price: 28000,
                 category: 'signatures',
-                img: './img/crepe33.jpg'
+                img: './img/crepe3.jpg'
             }
         ],
         boissons: [
@@ -1027,3 +1027,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ======================== QR CODE GENERATION ========================
+function toggleQRCode() {
+    const container = document.getElementById('qrCodeContainer');
+    if (!container) return;
+    
+    if (container.classList.contains('hidden')) {
+        // Générer le QR code
+        container.innerHTML = ''; // Clear previous
+        new QRCode(container, {
+            text: 'https://crepitas-kinshasa.onrender.com/',
+            width: 128,
+            height: 128,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        container.classList.remove('hidden');
+    } else {
+        container.classList.add('hidden');
+    }
+}
