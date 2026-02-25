@@ -1000,3 +1000,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('✓ Application CREPITAS KINSHASA initialisée avec succès');
 });
+
+// ======================== THÈME TOGGLE ========================
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+        });
+    }
+});

@@ -1,3 +1,4 @@
+/* VERSION_FINALE_OK_2026 */
 /* Version Finale 2.0 - Mise à jour Render */
 
 /* ======================== VARIABLES GLOBALES ======================== */
@@ -30,6 +31,26 @@
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
     --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ======================== THÈME CLAIR ======================== */
+body.light-mode {
+    --bg: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --text: #000000;
+    --text-secondary: #6c757d;
+    --text-secondary-emphasis: #495057;
+    --border: rgba(0, 0, 0, 0.1);
+    --hover: rgba(0, 0, 0, 0.05);
+    
+    /* Mise à jour des legacy */
+    --dark-bg: #ffffff;
+    --dark-secondary: #f8f9fa;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-light: #000000;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 /* Section QR */
@@ -3246,6 +3267,20 @@ textarea{
 
 /* style pour mobile uniquement */
 @media screen and (max-width: 768px) {
+    /* Force box-sizing et width pour tous les conteneurs */
+    * {
+        box-sizing: border-box;
+    }
+    
+    .nav-container, .hero-content, .footer-content, .cart-container, .payment-modal {
+        width: 100%;
+    }
+    
+    /* Centre les textes du footer et des totaux du panier */
+    .footer-section p, .footer-bottom p, .summary-line {
+        text-align: center;
+    }
+    
     .nav-links {
         display: none;  /*cache le menu par defaut*/
         flex-direction: column;
