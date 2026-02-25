@@ -1002,11 +1002,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ======================== THÈME TOGGLE ========================
+// 
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('themeToggle');
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    // 1. Vérifier si un thème est déjà sauvegardé
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        body.classList.add("light-mode");
+    }
+
+    // 2. Gérer le clic sur le bouton
     if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
+        themeToggle.addEventListener("click", () => {
+            body.classList.toggle("light-mode");
+            
+            // 3. Sauvegarder le choix
+            if (body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+            } else {
+                localStorage.setItem("theme", "dark");
+            }
         });
     }
 });
