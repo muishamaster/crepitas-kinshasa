@@ -302,6 +302,13 @@
 
     <script src="./script.js"></script>
     <script>
+        document.getElementById("themeToggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+});
+
+    </script>
+    <script>
         // Fonction pour ajouter au panier depuis la spécialité du chef
         function addToCartFromChef() {
             if (typeof cartManager !== 'undefined') {
