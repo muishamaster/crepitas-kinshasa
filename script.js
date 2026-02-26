@@ -1019,11 +1019,11 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.toggle("light-mode");
             
             // 3. Sauvegarder le choix
-            if (body.classList.contains("light-mode")) {
-                localStorage.setItem("theme", "light");
-            } else {
-                localStorage.setItem("theme", "dark");
-            }
+            // if (body.classList.contains("light-mode")) {
+            //     localStorage.setItem("theme", "light");
+            // } else {
+            //     localStorage.setItem("theme", "dark");
+            // }
         });
     }
 });
