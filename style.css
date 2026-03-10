@@ -142,6 +142,138 @@ body.light-mode {
     --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
+/* Footer */
+/* --------- */
+/* -------- */
+
+.footer {
+  background: #111;
+  color: #eee;
+  padding: 60px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 40px;
+}
+
+/* LOGO */
+.footer-logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.footer-slogan {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+/* SOCIAL */
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #222;
+  margin-right: 10px;
+  color: var(--gold);
+  transition: .3s;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  background: var(--gold-light);
+  color: #111;
+}
+
+/* TITLES */
+.footer-title {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: var(--gold);
+}
+
+/* LINKS */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: .3s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-light);
+  padding-left: 5px;
+}
+
+/* CONTACT */
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.contact-item i {
+  margin-right: 12px;
+  /* align-items: center; */
+  color: var(--gold);
+  font-size: 16px;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  text-align: center;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.contact-item i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #777;
+}
+.footer-col
+
 .footer {
     background-color: var(--bg-secondary);
     color: var(--text); /* use theme color variables */
@@ -461,6 +593,9 @@ body::before {
     .about-container {
         flex-direction: column;
     }
+    .about-text h2{
+        text-align: center;
+    }
 }
 
 /* ======================== HAMBURGER MENU ======================== */
@@ -692,6 +827,7 @@ body::before {
 
     .hero-btns {
         display: flex;
+        /* border-radius: 40px; */
         justify-content: center;
     }
 
@@ -763,6 +899,7 @@ body::before {
 
     .hero-btns {
         display: flex;
+        /* border-radius: 40px; */
         justify-content: center;
     }
 
@@ -779,6 +916,7 @@ body::before {
 
     .hero-btns {
         display: flex;
+        /* border-radius: 40px; */
         justify-content: center; /* centre horizontalement */
         align-items: center;
     }
@@ -936,6 +1074,7 @@ body::before {
 .hero-btns {
     display: flex;
     gap: 1.5rem;
+    /* border-radius: 40px; */
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -973,6 +1112,7 @@ body::before {
 .btn-cta-primary {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
     color: #0f0f0f;
+    /* border-radius: 50px; */
     /* box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3); */
 }
 
@@ -1739,6 +1879,7 @@ body::before {
 
     .hero-btns {
         flex-direction: column;
+        /* border-radius: 40px; */
     }
 
     .btn-cta {
@@ -3244,6 +3385,7 @@ textarea{
     .hero-btns {
         display: flex;
         justify-content: center;
+        /* border-radius: 40px; */
     }
 
     .btn-cta {
@@ -3259,6 +3401,7 @@ textarea{
 
     .hero-btns {
         display: flex;
+        /* border-radius: 40px; */
         justify-content: center; /* centre horizontalement */
         align-items: center;
     }

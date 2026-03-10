@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="texture-overlay"></div>
@@ -182,34 +183,75 @@
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.364-3.905 6.75-1.897 10.391 1.672 2.904 5.291 3.118 8.632 3.118h.46a9.75 9.75 0 003.464-.6l3.585 1.241a.18.18 0 00.248-.204l-1.081-3.93a9.8 9.8 0 001.175-5.621c-.001-5.487-4.144-9.95-9.451-9.95"></path>
         </svg>
     </a>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CREPITAS KINSHASA</h3>
-                <p>L'Art de la Crêpe</p>
-                <p>Crêpes artisanales, gourmandise et élégance</p>
-            </div>
-            <div class="footer-section">
-                <h3>Horaires</h3>
-                <p>Lundi - Dimanche<br>11h00 - 23h00</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>📱 +243 977 970 594<br>📧 contact@crepitas.cd</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 CREPITAS KINSHASA. Tous droits réservés.</p>
-        </div>
-    </footer>
-
     <!-- Section QR Code -->
     <div class="qr-code-section">
         <button class="btn-qr-toggle" onclick="toggleQRCode()">📱 Afficher QR Code Menu</button>
         <div id="qrCodeContainer" class="qr-code-container hidden"></div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+  <div class="footer-container">
+
+    <!-- SECTION 1 — LOGO + SLOGAN + SOCIAL -->
+    <div class="footer-col">
+      <h2 class="footer-logo">CREPITAS</h2>
+      <p class="footer-slogan">L'Art de la Crêpe <br>
+Crêpes artisanales, gourmandise et élégance</p>
+
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- SECTION 2 — NAVIGATION -->
+    <div class="footer-col">
+      <h3 class="footer-title">Nos Services</h3>
+      <ul class="footer-links">
+        <li><a href="./index.html">Accueil</a></li>
+        <li><a href="./menu.html">Menu</a></li>
+        <li><a href="./apropos.html">À propos</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SECTION 3 — CONTACT -->
+    <div class="footer-col">
+      <h3 class="footer-title">Contact</h3>
+
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>+243 977 970 594</span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Kinshasa, Gombe.</span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>contact@crepitas.com</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2026 Crepitas — Tous droits réservés
+  </div>
+</footer>
+
+    <!-- Section QR Code -->
+    <!-- <div class="qr-code-section">
+        <button class="btn-qr-toggle" onclick="toggleQRCode()">📱 Afficher QR Code Menu</button>
+        <div id="qrCodeContainer" class="qr-code-container hidden"></div>
+    </div> -->
 
     <!-- Scripts -->
     <script src="./src/js/theme-manager.js"></script>

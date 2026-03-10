@@ -6,6 +6,7 @@
     <title>À Propos - Crepitas Kinshasa</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         /* Small hero tweak for about page */
         .about-hero { padding: 4rem 1rem; text-align: center; }
@@ -105,25 +106,60 @@ CRÉPITAS s’adresse principalement à une clientèle jeune, active et créativ
 
     <!-- footer part -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CREPITAS KINSHASA</h3>
-                <p>L'Art de la Crêpe</p>
-                <p>Crêpes artisanales, gourmandise et élégance</p>
-            </div>
-            <div class="footer-section">
-                <h3>Horaires</h3>
-                <p>Lundi - Dimanche<br>11h00 - 23h00</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>📱 +243 977 970 594<br>📧 contact@crepitas.cd</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 CREPITAS KINSHASA. Tous droits réservés.</p>
-        </div>
-    </footer>
+  <div class="footer-container">
+
+    <!-- SECTION 1 — LOGO + SLOGAN + SOCIAL -->
+    <div class="footer-col">
+      <h2 class="footer-logo">CREPITAS</h2>
+      <p class="footer-slogan">L'Art de la Crêpe<br>Crêpes artisanales, gourmandise et élégance</p>
+
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- SECTION 2 — NAVIGATION -->
+    <div class="footer-col">
+      <h3 class="footer-title">Nos Services</h3>
+      <ul class="footer-links">
+        <li><a href="./index.html">Accueil</a></li>
+        <li><a href="./menu.html">Menu</a></li>
+        <li><a href="./apropos.html">À propos</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SECTION 3 — CONTACT -->
+    <div class="footer-col">
+      <h3 class="footer-title">Contact</h3>
+
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>+243 977 970 594</span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Kinshasa, Gombe.</span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>contact@crepitas.com</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2026 Crepitas — Tous droits réservés
+  </div>
+</footer>
 
     <script>
         document.getElementById("themeToggle").addEventListener("click", function () {
@@ -132,12 +168,6 @@ CRÉPITAS s’adresse principalement à une clientèle jeune, active et créativ
 });
 
     </script>
-    <script>
-        document.getElementById("themeToggle").addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-    document.body.classList.toggle("light-mode");
-});
-
     </script>
 
     <script src="./src/js/theme-manager.js"></script>
